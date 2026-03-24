@@ -20,7 +20,7 @@
     ],
     "baseUrl": "app/",
     "paths": {
-      "@/components/*": ["components/*"]
+      "@/components/*": ["ui/components/*"]
     },
     "types": ["vitest/globals"]
   },
