@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { gowunDodum, titleHeader } from "ui/fonts";
+import InstagramIcon from "./InstagramIcon";
 
 export default function Footer() {
     return (
@@ -53,6 +54,16 @@ export default function Footer() {
                     </li>
                 </ul>
             </nav>
+
+            <a 
+                href={'https://www.instagram.com/backtotheshelfagain/'}
+                target='_blank'
+                rel='noopener noreferrer'
+                className="mt-4"
+            >
+                <InstagramIcon className={'text-pink-300'} />
+            </a>
+            
         </footer>
     );
 }

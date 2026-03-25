@@ -1,9 +1,23 @@
 import H1 from "@/components/H1";
+import InstagramEmbed from "@/components/InstagramEmbed";
+import { paragraph } from "ui/fonts";
 
 export default function Contact() {
     return (
-        <main>
+        <main className="p-4 flex flex-col gap-4">
             <H1 line1='CONTACT' line2='us' />
+            <p className={`text-center text-lg ${paragraph.className}`}>Find us on Instagram at {' '}
+                <a
+                    href="https://www.instagram.com/mlewimmer/"
+                    target="_blank"
+                    rel="noopener noreferrer" 
+                    className="text-pink-400"               
+                >
+                    @backtotheshelfagain
+                </a>
+            </p>
+
+            <InstagramEmbed />
         </main>
     );
 }
