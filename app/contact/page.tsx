@@ -1,7 +1,9 @@
+import H1 from "@/components/H1";
+
 export default function Contact() {
     return (
         <main>
-            Contact
+            <H1 line1='CONTACT' line2='us' />
         </main>
     );
 }

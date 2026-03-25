@@ -3,4 +3,12 @@
 @theme {
   --color-background-50: #FBFAF3;
   --color-background-100: #F3EBE3;
+  --color-pink-100: #F1E1E2;
+  --color-pink-200: #E5BBBE;
+  --color-pink-300: #C17D93;
+  --color-pink-400: #8c3450;
+  --color-green-100: #E0E5DD;
+  --color-green-200: #BDCABA;
+  --color-green-300: #5D6E5F;
+  --color-green-400: #374a39;
 }

@@ -1,11 +1,21 @@
 import { ReactNode } from "react";
+import { amatic, cursive } from "ui/fonts";
 
 type H1Type = {
-    children: ReactNode;
+    line1: ReactNode;
+    line2?: ReactNode;
 }
 
-export default function H1({ children }: H1Type) {
+export default function H1({ line1, line2 }: H1Type) {
     return (
-        <h1 className="text-2xl">{children}</h1>
+        <h1 className="text-center">
+            <span className={`${amatic.className} text-5xl/8`}>{line1}</span> 
+            {line2 && 
+                <>
+                    <br/>
+                    <span className={`${cursive.className} text-6xl/9`}>{line2}</span>
+                </>
+            }
+        </h1>
     );
 }
