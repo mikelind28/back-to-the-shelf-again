@@ -32,9 +32,9 @@ export default function EventCard({ event }: { event: EventType }) {
 
       <p className="text-lg">{event.address}</p>
 
-      <MapEmbed embedSrc={event.map_embed_src} />
+      {event.map_embed_src && <MapEmbed embedSrc={event.map_embed_src} />}
 
-      <p>{event.description}</p>
+      {event.description && <p>{event.description}</p>}
     </div>
   );
 }

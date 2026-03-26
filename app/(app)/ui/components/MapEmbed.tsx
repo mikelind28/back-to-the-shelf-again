@@ -1,4 +1,8 @@
-export default function MapEmbed({ embedSrc }: { embedSrc: string }) {
+export default function MapEmbed({
+  embedSrc,
+}: {
+  embedSrc: string | undefined;
+}) {
   return (
     <iframe
       src={embedSrc}
