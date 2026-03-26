@@ -28,7 +28,7 @@ const Events: CollectionConfig = {
       type: "ui",
       admin: {
         components: {
-          Field: "/components/AutofillEndTime#AutofillEndTime",
+          Field: "/app/(app)/ui/components/AutofillEndTime#AutofillEndTime",
         },
       },
     },
