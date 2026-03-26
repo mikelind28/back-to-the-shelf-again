@@ -1,7 +1,7 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig } from "payload";
 
 const Locations: CollectionConfig = {
-  slug: 'locations',
+  slug: "locations",
   access: {
     read: () => true,
     create: ({ req: { user } }) => Boolean(user),
@@ -9,26 +9,26 @@ const Locations: CollectionConfig = {
     delete: ({ req: { user } }) => Boolean(user),
   },
   admin: {
-    useAsTitle: 'name',
+    useAsTitle: "name",
   },
   fields: [
     {
-      name: 'name',
-      type: 'text',
+      name: "name",
+      type: "text",
       required: true,
       unique: true,
     },
     {
-      name: 'address',
-      type: 'text',
+      name: "address",
+      type: "text",
       required: true,
       unique: true,
     },
     {
-      name: 'map_embed_src',
-      type: 'text',
+      name: "map_embed_src",
+      type: "text",
     },
   ],
-}
+};
 
-export default Locations
+export default Locations;

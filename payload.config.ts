@@ -15,7 +15,7 @@ const dirname = path.dirname(filename);
 
 export default buildConfig({
   admin: {
-    user: 'admins',
+    user: "admins",
     importMap: {
       baseDir: path.resolve(dirname),
     },
@@ -30,9 +30,8 @@ export default buildConfig({
     pool: {
       connectionString: process.env.POSTGRES_URL || "",
     },
-    idType: 'uuid',
+    idType: "uuid",
   }),
   sharp,
   plugins: [],
 });
-

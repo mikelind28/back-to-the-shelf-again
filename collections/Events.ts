@@ -1,8 +1,8 @@
-import type { CollectionConfig } from 'payload'
-import { Event } from '../payload-types'
+import type { CollectionConfig } from "payload";
+import { Event } from "../payload-types";
 
 const Events: CollectionConfig = {
-  slug: 'events',
+  slug: "events",
   access: {
     read: () => true,
     create: ({ req: { user } }) => Boolean(user),
@@ -10,58 +10,58 @@ const Events: CollectionConfig = {
     delete: ({ req: { user } }) => Boolean(user),
   },
   admin: {
-    useAsTitle: 'start_time',
+    useAsTitle: "start_time",
   },
   fields: [
     {
-      name: 'start_time',
-      type: 'date',
+      name: "start_time",
+      type: "date",
       required: true,
       admin: {
         date: {
-          pickerAppearance: 'dayAndTime',
+          pickerAppearance: "dayAndTime",
         },
       },
     },
     {
-      name: 'autofillEndTime',
-      type: 'ui',
+      name: "autofillEndTime",
+      type: "ui",
       admin: {
         components: {
-          Field: '/components/AutofillEndTime#AutofillEndTime',
+          Field: "/components/AutofillEndTime#AutofillEndTime",
         },
       },
     },
     {
-      name: 'end_time',
-      type: 'date',
+      name: "end_time",
+      type: "date",
       required: true,
       validate: (val, { siblingData }: { siblingData: Partial<Event> }) => {
-        if (!val || !siblingData?.start_time) return true
+        if (!val || !siblingData?.start_time) return true;
         return (
           new Date(val) > new Date(siblingData.start_time as string) ||
-          'End time must be later than start time.'
-        )
+          "End time must be later than start time."
+        );
       },
       admin: {
         date: {
-          pickerAppearance: 'dayAndTime',
+          pickerAppearance: "dayAndTime",
         },
       },
     },
     {
-      name: 'description',
-      type: 'textarea',
+      name: "description",
+      type: "textarea",
     },
     {
-      name: 'location',
-      type: 'relationship',
-      relationTo: 'locations',
+      name: "location",
+      type: "relationship",
+      relationTo: "locations",
       required: true,
     },
     {
-      name: 'title',
-      type: 'text',
+      name: "title",
+      type: "text",
       virtual: true,
       admin: {
         hidden: true,
@@ -70,36 +70,36 @@ const Events: CollectionConfig = {
         afterRead: [
           async ({ siblingData, req }) => {
             const date = siblingData?.start_time
-              ? new Date(siblingData.start_time).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
+              ? new Date(siblingData.start_time).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
                 })
-              : 'Unknown Date'
+              : "Unknown Date";
 
-            const locationRef = siblingData?.location
-            let locationName = 'Unknown Location'
+            const locationRef = siblingData?.location;
+            let locationName = "Unknown Location";
 
-           if (locationRef) {
+            if (locationRef) {
               const locationId =
-                typeof locationRef === 'object' ? locationRef.id : locationRef
+                typeof locationRef === "object" ? locationRef.id : locationRef;
               try {
                 const location = await req.payload.findByID({
-                  collection: 'locations',
+                  collection: "locations",
                   id: locationId,
-                })
-                locationName = location?.name ?? 'Unknown Location'
+                });
+                locationName = location?.name ?? "Unknown Location";
               } catch {
-                locationName = 'Unknown Location'
+                locationName = "Unknown Location";
               }
             }
 
-            return `${date} at ${locationName}`
+            return `${date} at ${locationName}`;
           },
         ],
       },
     },
   ],
-}
+};
 
-export default Events
+export default Events;
