@@ -1,9 +1,11 @@
 import postgres from "postgres";
 import { EventType } from "./types";
+import { unstable_noStore as noStore } from "next/cache";
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
 
 export async function fetchPastEvents() {
+  noStore();
   try {
     const data = await sql<EventType[]>`
             SELECT E.id, E.start_time, E.end_time, E.description, E.location_id, L.name AS location_name, L.address, L.map_embed_src
@@ -22,6 +24,7 @@ export async function fetchPastEvents() {
 }
 
 export async function fetchUpcomingEvents() {
+  noStore();
   try {
     const data = await sql<EventType[]>`
             SELECT E.id, E.start_time, E.end_time, E.description, E.location_id, L.name AS location_name, L.address, L.map_embed_src
@@ -40,6 +43,7 @@ export async function fetchUpcomingEvents() {
 }
 
 export async function fetchUpcomingEventsPreview() {
+  noStore();
   try {
     const data = await sql<EventType[]>`
             SELECT E.id, E.start_time, E.end_time, E.description, E.location_id, L.name AS location_name, L.address, L.map_embed_src
