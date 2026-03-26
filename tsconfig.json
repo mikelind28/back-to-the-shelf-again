@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,11 +22,21 @@
         "name": "next"
       }
     ],
-    "baseUrl": "app/",
+    "baseUrl": "./app/(app)/",
     "paths": {
-      "@/components/*": ["ui/components/*"]
+      "@/*": [
+        "*"
+      ],
+      "@/ui/*": [
+        "ui/*"
+      ],
+      "@payload-config": [
+        "../../payload.config.ts"
+      ]
     },
-    "types": ["vitest/globals"]
+    "types": [
+      "vitest/globals"
+    ]
   },
   "include": [
     "next-env.d.ts",
@@ -32,5 +46,7 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
