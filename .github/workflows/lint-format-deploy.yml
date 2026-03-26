@@ -55,6 +55,3 @@ jobs:
 
       - name: Run Payload migrations
         run: npx payload migrate
-
-      - name: Deploy to Vercel
-        run: npx vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
