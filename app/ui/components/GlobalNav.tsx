@@ -15,7 +15,7 @@ export default function GlobalNav({ setGlobalNavOpen }: GlobalNavType) {
       animate={{ x: 0 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
       exit={{ x: "100%" }}
-      className="fixed top-0 left-0 bg-background-50 w-dvw h-dvh p-8"
+      className="bg-background-50 fixed top-0 left-0 z-100 h-dvh w-dvw p-8"
     >
       <button
         aria-label="close global nav"
@@ -25,7 +25,7 @@ export default function GlobalNav({ setGlobalNavOpen }: GlobalNavType) {
       </button>
 
       <ul
-        className={`flex flex-col items-end mt-8 gap-4 text-3xl ${gowunDodum.className}`}
+        className={`mt-8 flex flex-col items-end gap-4 text-3xl ${gowunDodum.className}`}
       >
         <li>
           <Link href="/" onClick={() => setGlobalNavOpen(false)}>

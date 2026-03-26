@@ -2,17 +2,15 @@ import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  plugins: [
-    react(),
-  ],
+  plugins: [react()],
   resolve: {
     tsconfigPaths: true,
   },
   test: {
     // simulates a browser DOM for component tests
     environment: "jsdom",
-    // lets you use describe/it/expect without importing them      
-    globals: true,                 
+    // lets you use describe/it/expect without importing them
+    globals: true,
     setupFiles: ["./vitest.setup.ts"],
     include: ["app/**/*.test.{ts,tsx}"],
     exclude: ["node_modules", "e2e"],

@@ -1,154 +1,175 @@
 import H1 from "@/components/H1";
 import Image from "next/image";
 import { ReactNode } from "react";
-import { amatic, paragraph } from "ui/fonts";
+import { paragraph } from "ui/fonts";
 
 type SectionType = {
-    headerLine1: string;
-    headerLine2: string;
-    bgColorMain: string;
-    bgColorLight: string;
-    children: ReactNode;
-    dividerColor?: string;
-}
+  headerLine1: string;
+  headerLine2: string;
+  bgColorMain: string;
+  bgColorLight: string;
+  children: ReactNode;
+  dividerColor?: string;
+};
 
-function Section({ headerLine1, headerLine2, bgColorMain, bgColorLight, children, dividerColor }: SectionType) {
-    return (
-        <div className={`flex flex-col gap-6 px-6 py-10 ${bgColorMain}`}>
-            <H1 line1={headerLine1} line2={headerLine2} />
-            <div className={`flex flex-col gap-2 ${bgColorLight} py-4 px-6 rounded-md`}>
-                {children}
-            </div>
-            {dividerColor && <div className={`h-0.5 w-full ${dividerColor} rounded-md`} />}
-        </div>    
-    );
+function Section({
+  headerLine1,
+  headerLine2,
+  bgColorMain,
+  bgColorLight,
+  children,
+  dividerColor,
+}: SectionType) {
+  return (
+    <div className={`flex flex-col gap-6 px-6 py-10 ${bgColorMain}`}>
+      <H1 line1={headerLine1} line2={headerLine2} />
+      <div
+        className={`flex flex-col gap-2 ${bgColorLight} rounded-md px-6 py-4`}
+      >
+        {children}
+      </div>
+      {dividerColor && (
+        <div className={`h-0.5 w-full ${dividerColor} rounded-md`} />
+      )}
+    </div>
+  );
 }
 
 export default function About() {
   return (
     <main className={`flex flex-col text-lg ${paragraph.className}`}>
-        {/* about us */}
-        <Section 
-            headerLine1={"ABOUT"} 
-            headerLine2={"us"} 
-            bgColorMain={"bg-background-100"} 
-            bgColorLight={"bg-background-50"}
-        >
-            <p className={`first-line:text-xl first-letter:text-3xl`}>
-                Every great romance deserves a second chance. That belief is at the heart of Back to the Shelf Again, a pop-up bookstore founded by lifelong book lovers, Emily Egley (
-                <a 
-                    href="https://www.instagram.com/mlewimmer/"
-                    target="_blank"
-                    rel="noopener noreferrer" 
-                    className="text-pink-400"
-                > 
-                    @mlewimmer 
-                </a>) and Molly Horning (
-                <a 
-                    href="https://www.instagram.com/molived/"
-                    target="_blank"
-                    rel="noopener noreferrer" 
-                    className="text-pink-400"
-                >
-                    @molived
-                </a>).
-            </p>
-            <p>
-                A whole new generation of readers has discovered the joy of romance
-                novels, but along with this new audience we noticed a gap in the
-                book world: countless, once treasured, romance novels were somehow
-                gathering dust on shelves, waiting for another reader to fall in
-                love with their pages. Rather than let these stories fade away, we
-                wanted to create a way to give them new life.
-            </p>
-        </Section>
+      {/* about us */}
+      <Section
+        headerLine1={"ABOUT"}
+        headerLine2={"us"}
+        bgColorMain={"bg-background-100"}
+        bgColorLight={"bg-background-50"}
+      >
+        <p className={`first-letter:text-3xl first-line:text-xl`}>
+          Every great romance deserves a second chance. That belief is at the
+          heart of Back to the Shelf Again, a pop-up bookstore founded by
+          lifelong book lovers, Emily Egley (
+          <a
+            href="https://www.instagram.com/mlewimmer/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-pink-400"
+          >
+            @mlewimmer
+          </a>
+          ) and Molly Horning (
+          <a
+            href="https://www.instagram.com/molived/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-pink-400"
+          >
+            @molived
+          </a>
+          ).
+        </p>
+        <p>
+          A whole new generation of readers has discovered the joy of romance
+          novels, but along with this new audience we noticed a gap in the book
+          world: countless, once treasured, romance novels were somehow
+          gathering dust on shelves, waiting for another reader to fall in love
+          with their pages. Rather than let these stories fade away, we wanted
+          to create a way to give them new life.
+        </p>
+      </Section>
 
-        {/* our mission */}
-        <Section 
-            headerLine1={"OUR"} 
-            headerLine2={"mission"} 
-            bgColorMain={"bg-pink-200"} 
-            bgColorLight={"bg-pink-100"}  
-            dividerColor={"bg-pink-300"}
-        >
-            <p className={`first-line:text-xl first-letter:text-3xl`}>
-                Our mission is simple: to give gently used romance books a second
-                chance at love. We believe stories are meant to be shared, not
-                shelved, and that every dog-eared page, handwritten note, and
-                well-loved spine carries the magic of the readers before you.
-            </p>
-            <p>
-                Because sometimes, the best love stories don’t end at “The End.”
-                Sometimes, they just need another chance to be discovered.
-            </p>
-        </Section>
+      {/* our mission */}
+      <Section
+        headerLine1={"OUR"}
+        headerLine2={"mission"}
+        bgColorMain={"bg-pink-200"}
+        bgColorLight={"bg-pink-100"}
+        dividerColor={"bg-pink-300"}
+      >
+        <p className={`first-letter:text-3xl first-line:text-xl`}>
+          Our mission is simple: to give gently used romance books a second
+          chance at love. We believe stories are meant to be shared, not
+          shelved, and that every dog-eared page, handwritten note, and
+          well-loved spine carries the magic of the readers before you.
+        </p>
+        <p>
+          Because sometimes, the best love stories don’t end at “The End.”
+          Sometimes, they just need another chance to be discovered.
+        </p>
+      </Section>
 
-        {/* our story */}
-        <Section 
-            headerLine1={"OUR"} 
-            headerLine2={"story"} 
-            bgColorMain={"bg-green-200"} 
-            bgColorLight={"bg-green-100"}  
-            dividerColor={"bg-green-300"}
-        >
-            <p className={`first-line:text-xl first-letter:text-3xl`}>
-                All great Female Main Characters (FMCs) meet their bestie at work,
-                and the same is true for us! The longer we worked together, the more
-                we came to realize not only that we’re a great team, but that we
-                share the same interests when it comes to the books we immerse
-                ourselves in... Romance.
-            </p>
-            <p>
-                As we began to share recommendations, favorite bookstagram accounts,
-                and local bookstores, we realized we wanted to join this amazing
-                book community and bring it to our own communities here in
-                Wisconsin.
-            </p>
-            <p>
-                We built Back to the Shelf Again to bring stories back into people’s
-                everyday lives. Whether you’re a seasoned reader or just finding
-                your way back, we’re here to help you fall in love with reading all
-                over again.
-            </p>
-        </Section>
+      {/* our story */}
+      <Section
+        headerLine1={"OUR"}
+        headerLine2={"story"}
+        bgColorMain={"bg-green-200"}
+        bgColorLight={"bg-green-100"}
+        dividerColor={"bg-green-300"}
+      >
+        <p className={`first-letter:text-3xl first-line:text-xl`}>
+          All great Female Main Characters (FMCs) meet their bestie at work, and
+          the same is true for us! The longer we worked together, the more we
+          came to realize not only that we’re a great team, but that we share
+          the same interests when it comes to the books we immerse ourselves
+          in... Romance.
+        </p>
+        <p>
+          As we began to share recommendations, favorite bookstagram accounts,
+          and local bookstores, we realized we wanted to join this amazing book
+          community and bring it to our own communities here in Wisconsin.
+        </p>
+        <p>
+          We built Back to the Shelf Again to bring stories back into people’s
+          everyday lives. Whether you’re a seasoned reader or just finding your
+          way back, we’re here to help you fall in love with reading all over
+          again.
+        </p>
+      </Section>
 
-        {/* meet emily */}
-        <Section 
-            headerLine1={"MEET"} 
-            headerLine2={"emily"} 
-            bgColorMain={"bg-pink-300"} 
-            bgColorLight={"bg-white/60"}  
-            dividerColor={"bg-pink-400"}
-        >
-            <Image
-                src='/emily.webp'
-                alt={'Emily'}
-                width={500}
-                height={500}
-            />
-            <p className={`first-line:text-xl first-letter:text-3xl`}>
-                Hi, I’m Emily, co-owner of Back to the Shelf Again. I’m a Lodi native, a wife, and a mom of two girls—and a lifelong book lover who started her reading journey with The Bailey School Kids and a full-blown Harry Potter obsession. Like a lot of us, life, college, and career pulled me away from reading for a while… until Molly, BTTSA co-owner, handed me a fantasy-romance novel and basically jump-started my entire personality again.
-            </p>
-        </Section>
+      {/* meet emily */}
+      <Section
+        headerLine1={"MEET"}
+        headerLine2={"emily"}
+        bgColorMain={"bg-pink-300"}
+        bgColorLight={"bg-white/60"}
+        dividerColor={"bg-pink-400"}
+      >
+        <Image src="/emily.webp" alt={"Emily"} width={500} height={500} />
+        <p className={`first-letter:text-3xl first-line:text-xl`}>
+          Hi, I’m Emily, co-owner of Back to the Shelf Again. I’m a Lodi native,
+          a wife, and a mom of two girls—and a lifelong book lover who started
+          her reading journey with The Bailey School Kids and a full-blown Harry
+          Potter obsession. Like a lot of us, life, college, and career pulled
+          me away from reading for a while… until Molly, BTTSA co-owner, handed
+          me a fantasy-romance novel and basically jump-started my entire
+          personality again.
+        </p>
+      </Section>
 
-        {/* meet molly */}
-        <Section 
-            headerLine1={"MEET"} 
-            headerLine2={"molly"} 
-            bgColorMain={"bg-green-300"} 
-            bgColorLight={"bg-white/60"}  
-            dividerColor={"bg-green-400"}
-        >
-            <Image
-                src='/molly.webp'
-                alt={'Molly, stirring a cup of coffee'}
-                width={500}
-                height={500}
-            />
-            <p className={`first-line:text-xl first-letter:text-3xl`}>
-                Hi, I’m Molly, co-owner of Back to the Shelf Again! Growing up as an only child with a Librarian for a mom, books have always been a constant companion. My reading obsession has grown from classics like The Boxcar Children & Nancy Drew to new (romance) classics by authors like Ali Hazelwood & Emily Henry. I’m beyond excited to be creating a space for readers to celebrate the joy that comes from a good romance novel!
-            </p>
-        </Section>
+      {/* meet molly */}
+      <Section
+        headerLine1={"MEET"}
+        headerLine2={"molly"}
+        bgColorMain={"bg-green-300"}
+        bgColorLight={"bg-white/60"}
+        dividerColor={"bg-green-400"}
+      >
+        <Image
+          src="/molly.webp"
+          alt={"Molly, stirring a cup of coffee"}
+          width={500}
+          height={500}
+        />
+        <p className={`first-letter:text-3xl first-line:text-xl`}>
+          Hi, I’m Molly, co-owner of Back to the Shelf Again! Growing up as an
+          only child with a Librarian for a mom, books have always been a
+          constant companion. My reading obsession has grown from classics like
+          The Boxcar Children & Nancy Drew to new (romance) classics by authors
+          like Ali Hazelwood & Emily Henry. I’m beyond excited to be creating a
+          space for readers to celebrate the joy that comes from a good romance
+          novel!
+        </p>
+      </Section>
     </main>
   );
 }
