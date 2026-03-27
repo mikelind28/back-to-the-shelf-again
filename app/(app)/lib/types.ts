@@ -1,8 +1,11 @@
+import type { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
+
 export type EventType = {
   id: string;
   start_time: Date;
   end_time: Date;
   description?: string;
+  description2?: SerializedEditorState;
   location_id: string;
   location_name: string;
   address: string;

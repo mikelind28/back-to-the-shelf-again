@@ -1,5 +1,6 @@
 import type { CollectionConfig } from "payload";
 import { Event } from "../payload-types";
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
 
 const Events: CollectionConfig = {
   slug: "events",
@@ -52,6 +53,11 @@ const Events: CollectionConfig = {
     {
       name: "description",
       type: "textarea",
+    },
+    {
+      name: "description2",
+      type: "richText",
+      editor: lexicalEditor({}),
     },
     {
       name: "location",
