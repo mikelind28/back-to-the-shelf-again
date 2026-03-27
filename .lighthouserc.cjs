@@ -6,7 +6,6 @@ module.exports = {
       numberOfRuns: 3,
     },
     assert: {
-      preset: "lighthouse:no-pwa",
       assertions: {
         // Accessibility — error on real issues, these matter for users
         "categories:accessibility": ["warn", { minScore: 0.8 }],
