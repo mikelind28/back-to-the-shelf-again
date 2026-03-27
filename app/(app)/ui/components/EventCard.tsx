@@ -13,6 +13,7 @@ export default function EventCard({ event }: { event: EventType }) {
           year: "numeric",
           month: "long",
           day: "numeric",
+          timeZone: "America/Chicago",
         })}
       </p>
 
@@ -20,11 +21,13 @@ export default function EventCard({ event }: { event: EventType }) {
         {event.start_time.toLocaleString("en-US", {
           hour: "numeric",
           minute: "numeric",
+          timeZone: "America/Chicago",
         })}
         –
         {event.end_time.toLocaleString("en-US", {
           hour: "numeric",
           minute: "numeric",
+          timeZone: "America/Chicago",
         })}
       </p>
 
