@@ -3,9 +3,11 @@ export default function MapEmbed({
 }: {
   embedSrc: string | undefined;
 }) {
+  const decodedSrc = embedSrc?.replace(/&#39;/g, "'").replace(/&amp;/g, "&");
+
   return (
     <iframe
-      src={embedSrc}
+      src={decodedSrc}
       width="fit"
       height="400"
       style={{ border: 0 }}
