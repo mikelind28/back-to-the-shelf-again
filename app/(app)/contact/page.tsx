@@ -9,7 +9,7 @@ export default function Contact() {
       <p className={`text-center text-lg ${paragraph.className}`}>
         Find us on Instagram at{" "}
         <a
-          href="https://www.instagram.com/mlewimmer/"
+          href="https://www.instagram.com/backtotheshelfagain"
           target="_blank"
           rel="noopener noreferrer"
           className="text-pink-400"
