@@ -194,6 +194,21 @@ export interface Event {
   start_time: string;
   end_time: string;
   description?: string | null;
+  description2?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ("ltr" | "rtl") | null;
+      format: "left" | "start" | "center" | "right" | "end" | "justify" | "";
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   location: string | Location;
   title?: string | null;
   updatedAt: string;
@@ -342,6 +357,7 @@ export interface EventsSelect<T extends boolean = true> {
   start_time?: T;
   end_time?: T;
   description?: T;
+  description2?: T;
   location?: T;
   title?: T;
   updatedAt?: T;
