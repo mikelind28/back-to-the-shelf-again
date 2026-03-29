@@ -4,8 +4,7 @@ export type EventType = {
   id: string;
   start_time: Date;
   end_time: Date;
-  description?: string;
-  description2?: SerializedEditorState;
+  description?: SerializedEditorState;
   location_id: string;
   location_name: string;
   address: string;

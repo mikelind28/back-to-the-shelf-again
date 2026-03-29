@@ -1,12 +1,10 @@
-import { paragraph } from "@/ui/fonts";
-import MapEmbed from "./MapEmbed";
 import { EventType } from "@/lib/types";
-import { RichText } from "@payloadcms/richtext-lexical/react";
+import { paragraph } from "../fonts";
 
-export default function EventCard({ event }: { event: EventType }) {
+export default function EventPreviewCard({ event }: { event: EventType }) {
   return (
     <div
-      className={`event-card ${paragraph.className} bg-background-50 my-4 flex flex-col gap-1 rounded-sm px-4 py-6 sm:px-6 sm:py-8`}
+      className={`${paragraph.className} bg-background-50 my-1 flex flex-col rounded-sm p-4 sm:p-6`}
     >
       <p className="text-2xl font-bold">
         {event.start_time.toLocaleString("en-US", {
@@ -35,14 +33,6 @@ export default function EventCard({ event }: { event: EventType }) {
       <p className="text-xl">{event.location_name}</p>
 
       <p className="text-lg">{event.address}</p>
-
-      {event.map_embed_src && 
-        <MapEmbed embedSrc={event.map_embed_src} />
-      }
-
-      {event.description &&
-        <RichText data={event.description} className="sm:text-lg sm:my-3" />
-      }
     </div>
   );
 }
