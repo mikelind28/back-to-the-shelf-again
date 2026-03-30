@@ -52,10 +52,6 @@ const Events: CollectionConfig = {
     },
     {
       name: "description",
-      type: "textarea",
-    },
-    {
-      name: "description2",
       type: "richText",
       editor: lexicalEditor({}),
     },

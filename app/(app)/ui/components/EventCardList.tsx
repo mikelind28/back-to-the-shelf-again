@@ -2,9 +2,9 @@
 
 import { EventType } from "@/lib/types";
 import { use } from "react";
-import EventPreviewCard from "./EventPreviewCard";
+import EventCard from "./EventCard";
 
-export default function EventPreviewList({
+export default function EventCardList({
   events,
 }: {
   events: Promise<EventType[]>;
@@ -12,10 +12,10 @@ export default function EventPreviewList({
   const allEvents = use(events);
 
   return (
-    <>
+    <div className="lg:flex lg:max-w-dvw lg:gap-4 lg:overflow-x-scroll">
       {allEvents.map((event) => (
-        <EventPreviewCard key={event.id} event={event} />
+        <EventCard key={event.id} event={event} />
       ))}
-    </>
+    </div>
   );
 }

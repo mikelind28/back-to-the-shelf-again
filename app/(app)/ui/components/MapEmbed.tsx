@@ -14,7 +14,7 @@ export default function MapEmbed({
       allowFullScreen={false}
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"
-      className="my-3"
+      className="my-3 sm:my-4"
     ></iframe>
   );
 }

@@ -15,7 +15,7 @@ export default function GlobalNav({ setGlobalNavOpen }: GlobalNavType) {
       animate={{ x: 0 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
       exit={{ x: "100%" }}
-      className="bg-background-50 fixed top-0 left-0 z-100 h-dvh w-dvw p-8"
+      className="bg-background-50 fixed top-0 left-0 z-100 h-dvh w-dvw p-8 sm:hidden"
     >
       <button
         aria-label="close global nav"

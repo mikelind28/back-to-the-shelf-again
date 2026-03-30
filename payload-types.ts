@@ -193,8 +193,7 @@ export interface Event {
   id: string;
   start_time: string;
   end_time: string;
-  description?: string | null;
-  description2?: {
+  description?: {
     root: {
       type: string;
       children: {
@@ -357,7 +356,6 @@ export interface EventsSelect<T extends boolean = true> {
   start_time?: T;
   end_time?: T;
   description?: T;
-  description2?: T;
   location?: T;
   title?: T;
   updatedAt?: T;

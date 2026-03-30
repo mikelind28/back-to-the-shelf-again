@@ -1,34 +1,42 @@
 import EventPreviewList from "./ui/components/EventPreviewList";
-import { EventPreviewSkeleton } from "./ui/components/Skeletons";
-import { fetchUpcomingEventsPreview } from "./lib/data";
+import {
+  EventPreviewSkeleton,
+  ImageListSkeleton,
+} from "./ui/components/Skeletons";
+import { fetchImages, fetchUpcomingEventsPreview } from "./lib/data";
 import Link from "next/link";
 import { Suspense } from "react";
 import { cursive, paragraph, titleHeader } from "./ui/fonts";
+import H2 from "./ui/components/H2";
+import MyImageList from "./ui/components/MyImageList";
+import ParallaxBg from "./ui/components/ParallaxBg";
 
 export default async function Home() {
   const events = fetchUpcomingEventsPreview();
+  const images = fetchImages();
 
   return (
-    <main className="w-full max-w-3xl">
-      <div className="relative flex h-full w-full items-center justify-center bg-pink-200/50">
-        <div className="aspect-5/3 w-full bg-[url(/book-pages.webp)] bg-cover opacity-30 brightness-110 contrast-75" />
+    <main className="w-full">
+      <div className="relative flex h-full w-full items-center justify-center bg-pink-200/50 shadow-[inset_0px_8px_40px_0px_rgb(0,0,0,30%)]">
+        <ParallaxBg />
 
+        {/* welcome */}
         <div className="absolute">
           <h1 className={`flex flex-col`}>
             <span
-              className={`${cursive.className} text-5xl text-green-300 text-shadow-[-1px_1px_0_var(--color-green-400)]`}
+              className={`${cursive.className} text-5xl text-green-300 text-shadow-[-1px_1px_0_var(--color-green-400)] sm:text-6xl`}
             >
               Welcome to
             </span>
 
             <span
-              className={`${titleHeader.className} text-4xl/7 text-pink-300 text-shadow-[1px_1px_0_var(--color-pink-400)]`}
+              className={`${titleHeader.className} text-4xl/7 text-pink-300 text-shadow-[1px_1px_0_var(--color-pink-400)] sm:text-5xl/9`}
             >
               BACK TO THE SHELF
             </span>
 
             <span
-              className={`${cursive.className} w-full text-center text-7xl/11 text-pink-300 text-shadow-[1px_1px_0_var(--color-pink-400)]`}
+              className={`${cursive.className} w-full text-center text-7xl/11 text-pink-300 text-shadow-[1px_1px_0_var(--color-pink-400)] sm:text-8xl/13`}
             >
               again
             </span>
@@ -36,22 +44,27 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="bg-background-50 flex h-fit w-full flex-col items-center gap-4 border-6 border-pink-300 px-5 py-8">
-        <p className={`${paragraph.className} text-center text-lg`}>
+      {/* about */}
+      <div className="flex w-full flex-col items-center gap-3 bg-pink-200 px-4 py-6 text-lg sm:gap-4 sm:px-6 sm:py-8">
+        <p
+          className={`${paragraph.className} bg-background-50 w-full max-w-4xl flex-col rounded-sm px-6 py-8 text-center sm:px-12 sm:py-10 sm:text-xl md:leading-8`}
+        >
           We are a pop-up bookstore in South-Central WI giving gently used
           romance books (and their readers!) a second chance at love 💕📖
         </p>
-        <Link href="/about" className="text-lg text-pink-300">
-          Learn more about us!
+        <Link
+          href="/about"
+          className="w-full max-w-md grow rounded-md bg-pink-300 px-4 py-2 text-center font-medium text-white text-shadow-2xs/25 sm:text-xl"
+        >
+          Where our story began...
         </Link>
       </div>
 
-      <div className="flex flex-col bg-green-200 p-4">
-        <h2
-          className={`${titleHeader.className} py-3 text-center text-3xl text-green-400 underline decoration-1 underline-offset-1`}
-        >
-          Upcoming Events
-        </h2>
+      {/* upcoming events */}
+      <div className="flex w-full flex-col items-center bg-green-200 p-4 sm:gap-1 sm:px-6 sm:py-8">
+        <Link href="/events">
+          <H2 color="green" text="Upcoming Events" />
+        </Link>
 
         <Suspense fallback={<EventPreviewSkeleton />}>
           <EventPreviewList events={events} />
@@ -59,11 +72,16 @@ export default async function Home() {
 
         <Link
           href="/events"
-          className="my-4 text-center text-xl text-green-400"
+          className="my-4 w-full max-w-xl grow rounded-md bg-green-300 px-4 py-2 text-center text-lg font-medium text-white text-shadow-2xs/25 sm:text-xl"
         >
           See all...
         </Link>
       </div>
+
+      {/* images */}
+      <Suspense fallback={<ImageListSkeleton />}>
+        <MyImageList images={images} />
+      </Suspense>
     </main>
   );
 }

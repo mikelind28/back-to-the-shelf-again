@@ -4,10 +4,15 @@ export type EventType = {
   id: string;
   start_time: Date;
   end_time: Date;
-  description?: string;
-  description2?: SerializedEditorState;
+  description?: SerializedEditorState;
   location_id: string;
   location_name: string;
   address: string;
   map_embed_src?: string;
+};
+
+export type ImageType = {
+  id: string;
+  url: string;
+  alt: string;
 };
