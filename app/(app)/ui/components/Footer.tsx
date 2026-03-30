@@ -5,7 +5,7 @@ import InstagramIcon from "./InstagramIcon";
 
 export default function Footer() {
   return (
-    <footer className="mb-4 flex flex-col sm:gap-2 p-4 sm:p-6">
+    <footer className="mb-4 flex flex-col p-4 sm:gap-2 sm:p-6">
       {/* Logo and site name; links to home page. */}
       <Link href="/" className="flex flex-col gap-2">
         <Image
@@ -26,7 +26,7 @@ export default function Footer() {
 
       <nav>
         <ul
-          className={`mt-4 flex flex-col gap-2 sm:gap-3 text-xl sm:text-2xl ${gowunDodum.className}`}
+          className={`mt-4 flex flex-col gap-2 text-xl sm:gap-3 sm:text-2xl ${gowunDodum.className}`}
         >
           <li>
             <Link href="/">Home</Link>

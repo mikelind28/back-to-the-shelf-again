@@ -1,16 +1,15 @@
 import type { CollectionConfig } from "payload";
-import { Admin } from "../payload-types";
 
 export const Media: CollectionConfig = {
   slug: "media",
-  admin: {
-    hidden: ({ user }) => (user as Admin)?.role !== "super-admin",
-  },
+  // admin: {
+  //   hidden: ({ user }) => (user as Admin)?.role !== "super-admin",
+  // },
   access: {
-    read: ({ req: { user } }) => (user as Admin)?.role === "super-admin",
-    create: ({ req: { user } }) => (user as Admin)?.role === "super-admin",
-    update: ({ req: { user } }) => (user as Admin)?.role === "super-admin",
-    delete: ({ req: { user } }) => (user as Admin)?.role === "super-admin",
+    read: () => true,
+    create: ({ req: { user } }) => Boolean(user),
+    update: ({ req: { user } }) => Boolean(user),
+    delete: ({ req: { user } }) => Boolean(user),
   },
   fields: [
     {
@@ -21,12 +20,3 @@ export const Media: CollectionConfig = {
   ],
   upload: true,
 };
-
-// access: {
-//   read: ({ req: { user } }) => {
-//     // Allow users with a role of 'admin'
-//     if (user && user.role && user.role.some((role) => role === 'super-admin')) {
-//       return true
-//     }
-//   },
-// },

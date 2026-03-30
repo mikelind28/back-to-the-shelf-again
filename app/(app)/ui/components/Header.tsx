@@ -16,7 +16,7 @@ export default function Header({
   setGlobalNavOpen,
 }: HeaderType) {
   return (
-    <header className="z-90 mb-4 flex items-center justify-between sm:gap-2 p-2 sm:p-4 sm:justify-start">
+    <header className="z-90 mb-4 flex items-center justify-between p-2 sm:justify-start sm:gap-2 sm:p-4">
       {/* Logo and site name; links to home page. */}
       <Link href="/" className="flex items-end gap-2">
         <Image

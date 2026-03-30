@@ -10,3 +10,9 @@ export type EventType = {
   address: string;
   map_embed_src?: string;
 };
+
+export type ImageType = {
+  id: string;
+  url: string;
+  alt: string;
+};

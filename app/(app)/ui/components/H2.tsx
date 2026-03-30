@@ -1,9 +1,9 @@
 import { titleHeader } from "../fonts";
 
 type H2Type = {
-  color: 'green' | 'pink';
+  color: "green" | "pink";
   text: string;
-}
+};
 
 export default function H2({ color, text }: H2Type) {
   return (
