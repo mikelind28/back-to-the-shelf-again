@@ -10,8 +10,7 @@ export default function MyImageList({
   images: Promise<ImageType[]>;
 }) {
   const allImages = use(images);
-  const serverUrl =
-    process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000";
+  const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || "";
 
   return (
     <div className="flex columns-1 flex-col items-center p-2 sm:block sm:columns-2 sm:gap-2 sm:px-2 sm:py-4 lg:columns-3 lg:gap-3">
