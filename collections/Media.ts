@@ -2,9 +2,9 @@ import type { CollectionConfig } from "payload";
 
 export const Media: CollectionConfig = {
   slug: "media",
-  // admin: {
-  //   hidden: ({ user }) => (user as Admin)?.role !== "super-admin",
-  // },
+  upload: {
+    staticDir: '../public/media',
+  },
   access: {
     read: () => true,
     create: ({ req: { user } }) => Boolean(user),
@@ -18,5 +18,4 @@ export const Media: CollectionConfig = {
       required: true,
     },
   ],
-  upload: true,
 };
