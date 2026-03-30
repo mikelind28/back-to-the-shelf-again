@@ -12,7 +12,7 @@ export default function MyImageList({
   const allImages = use(images);
 
   return (
-    <div className="columns-2 gap-1 px-1 py-2 sm:gap-2">
+    <div className="flex columns-1 flex-col items-center p-2 sm:block sm:columns-2 sm:gap-2 sm:px-2 sm:py-4 lg:columns-3 lg:gap-3">
       {allImages.map((image) => (
         <Image
           key={image.id}
@@ -21,7 +21,7 @@ export default function MyImageList({
           width={200}
           height={200}
           loading="eager"
-          className="mb-1 w-full rounded-2xl sm:mb-2"
+          className="mb-2 w-full max-w-120 rounded-2xl contrast-75 hue-rotate-340 sm:mb-2 lg:mb-3"
         />
       ))}
     </div>

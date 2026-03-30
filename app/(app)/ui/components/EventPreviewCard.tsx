@@ -4,7 +4,7 @@ import { paragraph } from "../fonts";
 export default function EventPreviewCard({ event }: { event: EventType }) {
   return (
     <div
-      className={`${paragraph.className} bg-background-50 my-1 flex flex-col rounded-sm p-4 sm:p-6`}
+      className={`w-full max-w-xl ${paragraph.className} bg-background-50 my-1 flex flex-col rounded-sm p-4 sm:p-6`}
     >
       <p className="text-2xl font-bold">
         {event.start_time.toLocaleString("en-US", {

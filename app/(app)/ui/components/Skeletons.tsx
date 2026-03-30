@@ -34,10 +34,10 @@ export function ImageListSkeleton() {
     <div
       className={`bg-background-50 *:animate-pulse-custom h-full columns-2 gap-1 p-2`}
     >
-      <div className="h-40 mb-1 w-full bg-stone-200" />
-      <div className="h-30 mb-1 w-full bg-stone-200" />
-      <div className="h-20 mb-1 w-full bg-stone-200" />
-      <div className="h-50 mb-1 w-full bg-stone-200" />
+      <div className="mb-1 h-40 w-full bg-stone-200" />
+      <div className="mb-1 h-30 w-full bg-stone-200" />
+      <div className="mb-1 h-20 w-full bg-stone-200" />
+      <div className="mb-1 h-50 w-full bg-stone-200" />
     </div>
   );
 }

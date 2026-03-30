@@ -52,7 +52,7 @@ export async function fetchUpcomingEventsPreview() {
       ON E.location_id = L.id
       WHERE E.end_time > NOW()
       ORDER BY E.start_time ASC
-      LIMIT 2;
+      LIMIT 3;
     `;
 
     return data;

@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`bg-background-100 h-full antialiased`}>
-      <body className="flex min-h-dvh flex-col justify-between">
+      <body className="flex min-h-dvh max-w-dvw flex-col justify-between">
         <HeaderWrapper />
         {children}
         <Footer />
