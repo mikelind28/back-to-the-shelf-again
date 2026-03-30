@@ -10,13 +10,15 @@ export default function MyImageList({
   images: Promise<ImageType[]>;
 }) {
   const allImages = use(images);
+  const serverUrl =
+    process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000";
 
   return (
     <div className="flex columns-1 flex-col items-center p-2 sm:block sm:columns-2 sm:gap-2 sm:px-2 sm:py-4 lg:columns-3 lg:gap-3">
       {allImages.map((image) => (
         <Image
           key={image.id}
-          src={`${image.url}`}
+          src={`${serverUrl}${image.url}`}
           alt={image.alt}
           width={200}
           height={200}
