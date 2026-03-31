@@ -1,8 +1,11 @@
 "use client";
 
 import { ImageType } from "@/lib/types";
+import { motion } from "motion/react";
 import Image from "next/image";
 import { use } from "react";
+
+const MotionImage = motion.create(Image);
 
 export default function MyImageList({
   images,
@@ -16,13 +19,17 @@ export default function MyImageList({
       {allImages.map((image) => {
         const url = image.url.replace("/api/media/file/", "/media/");
         return (
-          <Image
+          <MotionImage
             key={image.id}
             src={`${url}`}
             alt={image.alt}
             width={800}
             height={800}
             loading="eager"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.7 }}
             className="mb-2 w-full max-w-120 rounded-2xl contrast-75 hue-rotate-340 sm:mb-2 sm:max-w-full lg:mb-3"
           />
         );
