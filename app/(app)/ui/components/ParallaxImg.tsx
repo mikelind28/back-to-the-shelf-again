@@ -18,7 +18,7 @@ export default function ParallaxImg({ src }: { src: string }) {
   );
 
   return (
-    <div className="lg:sticky lg:top-4 overflow-hidden sm:mb-8 lg:mb-0 sm:max-w-140 sm:rounded-3xl lg:w-full lg:max-w-110">
+    <div className="overflow-hidden sm:mb-8 sm:max-w-140 sm:rounded-3xl lg:sticky lg:top-4 lg:mb-0 lg:w-full lg:max-w-110">
       <motion.img
         ref={divRef}
         src={src}

@@ -33,7 +33,9 @@ function Headline({ text }: HeadlineType) {
 }
 
 function Divider({ color }: DividerType) {
-  return <div className={`h-0.5 w-full max-w-125 ${color} rounded-md lg:mt-auto`} />;
+  return (
+    <div className={`h-0.5 w-full max-w-125 ${color} rounded-md lg:mt-auto`} />
+  );
 }
 
 function Card({ bgColor, children }: CardType) {
@@ -59,8 +61,8 @@ export default function About() {
       <Section bgColor={"bg-background-100"}>
         <H1 line1="ABOUT" line2="us" />
         <Card bgColor="bg-background-50">
-          <div className="flex flex-col lg:flex-row gap-3 lg:gap-10 px-6 pt-4 pb-6 sm:px-8 sm:pt-6 sm:pb-8 md:gap-5 md:px-12 md:pt-8 md:pb-10">
-            <div className="flex max-w-150 lg:max-w-110 flex-col gap-3">
+          <div className="flex flex-col gap-3 px-6 pt-4 pb-6 sm:px-8 sm:pt-6 sm:pb-8 md:gap-5 md:px-12 md:pt-8 md:pb-10 lg:flex-row lg:gap-10">
+            <div className="flex max-w-150 flex-col gap-3 lg:max-w-110">
               <Headline text="Every great romance deserves a second chance." />
               <p>
                 That belief is at the heart of Back to the Shelf Again, a pop-up
@@ -111,7 +113,7 @@ export default function About() {
         <Section bgColor={"bg-pink-200"}>
           <H1 line1="OUR" line2="mission" />
           <Card bgColor="bg-white/80">
-            <div className="max-w-150 flex flex-col gap-3 px-6 pt-4 pb-6 sm:px-8 sm:pt-6 sm:pb-8 md:gap-5 md:px-12 md:pt-8 md:pb-10">
+            <div className="flex max-w-150 flex-col gap-3 px-6 pt-4 pb-6 sm:px-8 sm:pt-6 sm:pb-8 md:gap-5 md:px-12 md:pt-8 md:pb-10">
               <Headline text="Our mission is simple: to give gently used romance books a second chance at love." />
               <p>
                 We believe stories are meant to be shared, not shelved, and that
@@ -131,25 +133,25 @@ export default function About() {
         <Section bgColor={"bg-green-200"}>
           <H1 line1="OUR" line2="story" />
           <Card bgColor="bg-white/80">
-            <div className="max-w-150 flex flex-col gap-3 px-6 pt-4 pb-6 sm:px-8 sm:pt-6 sm:pb-8 md:gap-5 md:px-12 md:pt-8 md:pb-10">
+            <div className="flex max-w-150 flex-col gap-3 px-6 pt-4 pb-6 sm:px-8 sm:pt-6 sm:pb-8 md:gap-5 md:px-12 md:pt-8 md:pb-10">
               <Headline text="All great Female Main Characters (FMCs) meet their bestie at work..." />
               <p>
-                ...and the same is true for us! The longer we worked together, the
-                more we came to realize not only that we’re a great team, but that
-                we share the same interests when it comes to the books we immerse
-                ourselves in... Romance.
+                ...and the same is true for us! The longer we worked together,
+                the more we came to realize not only that we’re a great team,
+                but that we share the same interests when it comes to the books
+                we immerse ourselves in... Romance.
               </p>
               <p>
                 As we began to share recommendations, favorite bookstagram
-                accounts, and local bookstores, we realized we wanted to join this
-                amazing book community and bring it to our own communities here in
-                Wisconsin.
+                accounts, and local bookstores, we realized we wanted to join
+                this amazing book community and bring it to our own communities
+                here in Wisconsin.
               </p>
               <p>
                 We built Back to the Shelf Again to bring stories back into
-                people’s everyday lives. Whether you’re a seasoned reader or just
-                finding your way back, we’re here to help you fall in love with
-                reading all over again.
+                people’s everyday lives. Whether you’re a seasoned reader or
+                just finding your way back, we’re here to help you fall in love
+                with reading all over again.
               </p>
             </div>
           </Card>
@@ -162,7 +164,7 @@ export default function About() {
         <Section bgColor={"bg-pink-300"}>
           <H1 line1="MEET" line2="emily" />
           <Card bgColor="bg-white/70">
-            <div className="max-w-150 md:max-w-190 flex flex-col items-center gap-3 px-6 pt-4 pb-6 sm:px-8 sm:pt-6 sm:pb-8 md:flex-row md:gap-5 md:pr-12 md:pt-8 md:pb-10 lg:flex-col 2xl:flex-row">
+            <div className="flex max-w-150 flex-col items-center gap-3 px-6 pt-4 pb-6 sm:px-8 sm:pt-6 sm:pb-8 md:max-w-190 md:flex-row md:gap-5 md:pt-8 md:pr-12 md:pb-10 lg:flex-col 2xl:flex-row">
               <Image
                 src="/emily.webp"
                 alt="Emily"
@@ -192,7 +194,7 @@ export default function About() {
         <Section bgColor={"bg-green-300"}>
           <H1 line1="MEET" line2="molly" />
           <Card bgColor="bg-white/70">
-            <div className="max-w-150 md:max-w-190 flex flex-col items-center gap-3 px-6 pt-4 pb-6 sm:px-8 sm:pt-6 sm:pb-8 md:flex-row md:gap-5 md:pr-12 md:pt-8 md:pb-10 lg:flex-col 2xl:flex-row">
+            <div className="flex max-w-150 flex-col items-center gap-3 px-6 pt-4 pb-6 sm:px-8 sm:pt-6 sm:pb-8 md:max-w-190 md:flex-row md:gap-5 md:pt-8 md:pr-12 md:pb-10 lg:flex-col 2xl:flex-row">
               <Image
                 src="/molly.webp"
                 alt="Molly, stirring a cup of coffee"
@@ -206,11 +208,11 @@ export default function About() {
                 <p>
                   ...co-owner of Back to the Shelf Again! Growing up as an only
                   child with a Librarian for a mom, books have always been a
-                  constant companion. My reading obsession has grown from classics
-                  like The Boxcar Children & Nancy Drew to new (romance) classics
-                  by authors like Ali Hazelwood & Emily Henry. I’m beyond excited
-                  to be creating a space for readers to celebrate the joy that
-                  comes from a good romance novel!
+                  constant companion. My reading obsession has grown from
+                  classics like The Boxcar Children & Nancy Drew to new
+                  (romance) classics by authors like Ali Hazelwood & Emily
+                  Henry. I’m beyond excited to be creating a space for readers
+                  to celebrate the joy that comes from a good romance novel!
                 </p>
               </div>
             </div>

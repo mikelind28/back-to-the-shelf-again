@@ -11,8 +11,9 @@ import H2 from "./ui/components/H2";
 import MyImageList from "./ui/components/MyImageList";
 import ParallaxBg from "./ui/components/ParallaxBg";
 import Image from "next/image";
+import ErrorBoundary from "@/ui/components/CustomErrorBoundary";
 
-export default async function Home() {
+export default function Home() {
   const events = fetchUpcomingEventsPreview();
   const images = fetchImages();
 
@@ -61,9 +62,9 @@ export default async function Home() {
         </Link>
       </div>
 
-      <div className="bg-green-200 border-b border-b-green-300 md:flex md:justify-center md:py-2 xl:py-6 2xl:py-10">
+      <div className="border-b border-b-green-300 bg-green-200 md:flex md:justify-center md:py-2 xl:py-6 2xl:py-10">
         {/* molly and emily */}
-        <div className="relative md:m-4 md:max-w-100 md:overflow-hidden md:rounded-2xl">
+        <div className="relative md:m-4 md:min-h-120 md:max-w-100 md:overflow-hidden md:rounded-2xl">
           <Image
             id="molly-and-emily"
             src="/molly-and-emily.webp"
@@ -71,6 +72,7 @@ export default async function Home() {
             width={1500}
             height={1500}
             className="aspect-4/3 w-full object-cover object-[50%_75%] md:h-full md:origin-[60%_70%] md:scale-150 md:object-bottom"
+            loading="eager"
           />
           <label
             htmlFor="molly-and-emily"
@@ -81,20 +83,22 @@ export default async function Home() {
         </div>
 
         {/* upcoming events */}
-        <div className="flex w-full flex-col items-center bg-green-200 p-4 sm:gap-1 sm:px-6 sm:py-8 md:pt-0 md:max-w-150">
+        <div className="flex h-fit w-full flex-col items-center bg-green-200 p-4 sm:gap-1 sm:px-6 sm:py-8 md:max-w-150 md:pt-0">
           <Link href="/events">
             <H2 color="green" text="Upcoming Events" />
           </Link>
 
-          <Suspense fallback={<EventPreviewSkeleton />}>
-            <EventPreviewList events={events} />
-          </Suspense>
+          <ErrorBoundary title="Upcoming Events Preview Error">
+            <Suspense fallback={<EventPreviewSkeleton />}>
+              <EventPreviewList events={events} />
+            </Suspense>
+          </ErrorBoundary>
 
           <Link
             href="/events"
-            className={`${titleHeader.className} my-4 w-full max-w-xl grow rounded-md bg-green-300 px-4 py-2 text-center text-xl font-medium text-white text-shadow-2xs/25 sm:text-2xl`}
+            className={`${titleHeader.className} my-4 h-fit w-full max-w-lg grow rounded-md bg-green-300 px-4 py-2 text-center text-xl font-medium text-white text-shadow-2xs/25 sm:text-2xl`}
           >
-            See all...
+            See all events
           </Link>
         </div>
       </div>
