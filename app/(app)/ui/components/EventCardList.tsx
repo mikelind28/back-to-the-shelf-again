@@ -12,7 +12,7 @@ export default function EventCardList({
   const allEvents = use(events);
 
   return (
-    <div className="lg:flex lg:max-w-dvw lg:gap-4 lg:overflow-x-scroll">
+    <div className="flex flex-col lg:max-w-dvw lg:flex-row lg:gap-5 lg:overflow-x-scroll">
       {allEvents.map((event) => (
         <EventCard key={event.id} event={event} />
       ))}

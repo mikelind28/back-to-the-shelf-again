@@ -5,9 +5,12 @@ import InstagramIcon from "./InstagramIcon";
 
 export default function Footer() {
   return (
-    <footer className="mb-4 flex flex-col p-4 sm:gap-2 sm:p-6">
+    <footer className="mb-4 flex flex-col p-4 sm:gap-2 sm:p-6 xl:flex-row xl:items-end xl:justify-between">
       {/* Logo and site name; links to home page. */}
-      <Link href="/" className="flex flex-col gap-2">
+      <Link
+        href="/"
+        className="flex flex-col gap-2 xl:flex-row xl:items-end xl:gap-6"
+      >
         <Image
           src="/logo.png"
           alt={
@@ -24,14 +27,10 @@ export default function Footer() {
         </h1>
       </Link>
 
-      <nav>
+      <nav className="xl:w-full">
         <ul
-          className={`mt-4 flex flex-col gap-2 text-xl sm:gap-3 sm:text-2xl ${gowunDodum.className}`}
+          className={`mt-4 flex flex-col gap-2 text-xl sm:gap-3 sm:text-2xl xl:mt-0 xl:flex-row xl:justify-evenly xl:text-3xl ${gowunDodum.className}`}
         >
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-
           <li>
             <Link href="/about">About Us</Link>
           </li>

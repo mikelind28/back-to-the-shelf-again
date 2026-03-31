@@ -6,7 +6,7 @@ import { RichText } from "@payloadcms/richtext-lexical/react";
 export default function EventCard({ event }: { event: EventType }) {
   return (
     <div
-      className={`event-card w-full lg:min-w-150 ${paragraph.className} bg-background-50 my-4 flex flex-col gap-1 rounded-sm px-4 py-6 sm:px-6 sm:py-8`}
+      className={`event-card w-full lg:max-w-160 lg:min-w-160 xl:max-w-180 xl:min-w-180 ${paragraph.className} bg-background-50 my-4 flex flex-col gap-1 rounded-sm px-4 py-6 sm:px-6 sm:py-8`}
     >
       <p className="text-2xl font-bold sm:text-3xl">
         {event.start_time.toLocaleString("en-US", {
