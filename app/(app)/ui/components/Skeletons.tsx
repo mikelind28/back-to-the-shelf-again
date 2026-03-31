@@ -1,7 +1,7 @@
 export function EventCardSkeleton() {
   return (
     <div
-      className={`bg-background-50 my-4 flex flex-col gap-2 rounded-sm px-4 py-6 sm:px-6 sm:py-8`}
+      className={`bg-background-50 my-4 flex flex-col gap-2 rounded-sm px-4 py-6 sm:px-6 sm:py-8 lg:max-w-160 lg:min-w-160 xl:max-w-180 xl:min-w-180`}
     >
       <div className="animate-pulse-custom h-8 w-70 rounded-md bg-stone-300" />
       <div className="animate-pulse-custom h-7 w-40 rounded-md bg-stone-300" />

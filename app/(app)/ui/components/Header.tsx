@@ -16,7 +16,7 @@ export default function Header({
   setGlobalNavOpen,
 }: HeaderType) {
   return (
-    <header className="z-90 mb-4 flex items-center justify-between p-2 sm:justify-start sm:gap-2 sm:p-4 lg:p-6">
+    <header className="z-90 mb-3 flex items-center justify-between p-2 pt-3 sm:gap-2 sm:p-4 lg:p-6">
       {/* Logo and site name; links to home page. */}
       <Link href="/" className="flex items-end gap-2">
         <Image
@@ -58,9 +58,9 @@ export default function Header({
         </AnimatePresence>
       </div>
 
-      <nav className="hidden sm:inline sm:grow">
+      <nav className="hidden max-w-2xl sm:inline sm:grow">
         <ul
-          className={`mx-6 flex justify-evenly gap-8 text-2xl ${gowunDodum.className}`}
+          className={`mx-6 flex justify-evenly gap-8 text-2xl xl:text-3xl ${gowunDodum.className}`}
         >
           <li>
             <Link href="/about" onClick={() => setGlobalNavOpen(false)}>

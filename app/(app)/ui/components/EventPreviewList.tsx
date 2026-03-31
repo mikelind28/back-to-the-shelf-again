@@ -13,9 +13,13 @@ export default function EventPreviewList({
 
   return (
     <>
-      {allEvents.map((event) => (
-        <EventPreviewCard key={event.id} event={event} />
-      ))}
+      {allEvents.length === 0 ? (
+        <p className="text-lg">No upcoming events found.</p>
+      ) : (
+        allEvents.map((event) => (
+          <EventPreviewCard key={event.id} event={event} />
+        ))
+      )}
     </>
   );
 }

@@ -12,10 +12,12 @@ export default function EventCardList({
   const allEvents = use(events);
 
   return (
-    <div className="lg:flex lg:max-w-dvw lg:gap-4 lg:overflow-x-scroll">
-      {allEvents.map((event) => (
-        <EventCard key={event.id} event={event} />
-      ))}
+    <div className="flex flex-col lg:max-w-dvw lg:flex-row lg:gap-5 lg:overflow-x-scroll">
+      {allEvents.length === 0 ? (
+        <p className="text-lg">None found!</p>
+      ) : (
+        allEvents.map((event) => <EventCard key={event.id} event={event} />)
+      )}
     </div>
   );
 }

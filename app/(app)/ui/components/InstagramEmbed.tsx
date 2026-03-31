@@ -1,12 +1,32 @@
 "use client";
 import { useEffect } from "react";
 
+declare global {
+  interface Window {
+    instgrm?: {
+      Embeds: {
+        process: () => void;
+      };
+    };
+  }
+}
+
 export default function InstagramEmbed() {
   useEffect(() => {
-    // Load the Instagram embed script
+    if (window.instgrm) {
+      // Script already loaded (e.g. on re-render), just reprocess
+      window.instgrm.Embeds.process();
+      return;
+    }
+
     const script = document.createElement("script");
     script.src = "//www.instagram.com/embed.js";
     script.async = true;
+    script.onload = () => {
+      if (window.instgrm) {
+        window.instgrm.Embeds.process();
+      }
+    };
     document.body.appendChild(script);
 
     return () => {
