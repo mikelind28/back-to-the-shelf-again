@@ -12,6 +12,7 @@ import MyImageList from "./ui/components/MyImageList";
 import ParallaxBg from "./ui/components/ParallaxBg";
 import Image from "next/image";
 import ErrorBoundary from "@/ui/components/CustomErrorBoundary";
+import * as motion from "motion/react-client";
 
 export default function Home() {
   const events = fetchUpcomingEventsPreview();
@@ -19,11 +20,21 @@ export default function Home() {
 
   return (
     <main className="w-full">
-      <div className="relative flex h-full w-full items-center justify-center bg-pink-200/50 shadow-[inset_0px_8px_40px_0px_rgb(0,0,0,30%)]">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2 }}
+        className="relative flex h-full w-full items-center justify-center bg-pink-200/50 shadow-[inset_0px_8px_40px_0px_rgb(0,0,0,30%)]"
+      >
         <ParallaxBg />
 
         {/* welcome */}
-        <div className="absolute">
+        <motion.div
+          initial={{ y: 20 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 1 }}
+          className="absolute"
+        >
           <h1 className={`flex flex-col`}>
             <span
               className={`${cursive.className} text-6xl text-green-300 text-shadow-[-1px_1px_0_var(--color-green-400)] sm:text-6xl md:text-7xl lg:text-8xl`}
@@ -43,11 +54,17 @@ export default function Home() {
               again
             </span>
           </h1>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* about */}
-      <div className="flex w-full flex-col items-center gap-3 border-y border-y-pink-300 bg-pink-200 px-4 py-6 text-lg sm:gap-4 sm:px-6 sm:py-8">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 2 }}
+        viewport={{ once: true }}
+        className="flex w-full flex-col items-center gap-3 border-y border-y-pink-300 bg-pink-200 px-4 py-6 text-lg sm:gap-4 sm:px-6 sm:py-8"
+      >
         <p
           className={`${gowunDodum.className} bg-background-50 w-full max-w-4xl flex-col rounded-sm px-6 py-8 text-center text-xl sm:px-12 sm:py-10 sm:text-xl md:leading-8`}
         >
@@ -60,11 +77,17 @@ export default function Home() {
         >
           Where our story began...
         </Link>
-      </div>
+      </motion.div>
 
       <div className="border-b border-b-green-300 bg-green-200 md:flex md:justify-center md:py-2 xl:py-6 2xl:py-10">
         {/* molly and emily */}
-        <div className="relative md:m-4 md:min-h-120 md:max-w-100 md:overflow-hidden md:rounded-2xl">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+          viewport={{ once: true }}
+          className="relative md:m-4 md:min-h-120 md:max-w-100 md:overflow-hidden md:rounded-2xl"
+        >
           <Image
             id="molly-and-emily"
             src="/molly-and-emily.webp"
@@ -80,7 +103,7 @@ export default function Home() {
           >
             Molly and Emily
           </label>
-        </div>
+        </motion.div>
 
         {/* upcoming events */}
         <div className="flex h-fit w-full flex-col items-center bg-green-200 p-4 sm:gap-1 sm:px-6 sm:py-8 md:max-w-150 md:pt-0">

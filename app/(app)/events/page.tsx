@@ -1,6 +1,11 @@
 import EventsPast from "@/ui/components/EventsPast";
 import EventsUpcoming from "@/ui/components/EventsUpcoming";
 import H1 from "@/ui/components/H1";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Events",
+};
 
 export default function Events() {
   return (

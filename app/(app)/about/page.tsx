@@ -3,6 +3,12 @@ import Image from "next/image";
 import { ReactNode } from "react";
 import { paragraph, titleHeader } from "@/ui/fonts";
 import ParallaxImg from "@/ui/components/ParallaxImg";
+import type { Metadata } from "next";
+import * as motion from "motion/react-client";
+
+export const metadata: Metadata = {
+  title: "About",
+};
 
 type HeadlineType = {
   text: string;
@@ -34,12 +40,28 @@ function Headline({ text }: HeadlineType) {
 
 function Divider({ color }: DividerType) {
   return (
-    <div className={`h-0.5 w-full max-w-125 ${color} rounded-md lg:mt-auto`} />
+    <motion.div
+      initial={{ width: 0 }}
+      whileInView={{ width: "100%" }}
+      viewport={{ once: true }}
+      transition={{ delay: 0.1, duration: 0.5 }}
+      className={`h-0.5 w-full max-w-125 ${color} rounded-md lg:mt-auto`}
+    />
   );
 }
 
 function Card({ bgColor, children }: CardType) {
-  return <div className={`${bgColor} rounded-md`}>{children}</div>;
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: 0.1, duration: 0.7 }}
+      className={`${bgColor} rounded-md`}
+    >
+      {children}
+    </motion.div>
+  );
 }
 
 function Section({ bgColor, children }: SectionType) {
@@ -97,7 +119,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="hidden lg:block lg:w-full">
+            <div className="hidden lg:block lg:w-full lg:max-w-110">
               <ParallaxImg src="/bag-with-logo.webp" />
             </div>
           </div>

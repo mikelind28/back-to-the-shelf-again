@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   },
   description:
     "A pop-up bookstore giving gently-used romance novels a second chance at love.",
+  generator: "Next.js",
+  authors: [{ name: "Mike Lind", url: "www.mike-lind-dev.com" }],
+  keywords: ["Book", "Romance", "Store", "Novel", "Read", "Wisconsin", "Event"],
 };
 
 export default function RootLayout({

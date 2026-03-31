@@ -1,9 +1,14 @@
 import { EventType } from "@/lib/types";
 import { paragraph } from "../fonts";
+import * as motion from "motion/react-client";
 
 export default function EventPreviewCard({ event }: { event: EventType }) {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.3, duration: 1 }}
+      viewport={{ once: true }}
       className={`w-full max-w-xl min-w-xs ${paragraph.className} bg-background-50 my-1 flex flex-col rounded-sm p-4 sm:p-6`}
     >
       <p className="text-2xl font-bold">
@@ -33,6 +38,6 @@ export default function EventPreviewCard({ event }: { event: EventType }) {
       <p className="text-xl">{event.location_name}</p>
 
       <p className="text-lg">{event.address}</p>
-    </div>
+    </motion.div>
   );
 }
