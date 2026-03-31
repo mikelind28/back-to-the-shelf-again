@@ -27,7 +27,7 @@ export default function Footer() {
         </h1>
       </Link>
 
-      <nav className="xl:w-full">
+      <nav className="xl:w-full max-w-2xl xl:ml-auto">
         <ul
           className={`mt-4 flex flex-col gap-2 text-xl sm:gap-3 sm:text-2xl xl:mt-0 xl:flex-row xl:justify-evenly xl:text-3xl ${gowunDodum.className}`}
         >

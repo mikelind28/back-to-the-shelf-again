@@ -61,7 +61,7 @@ export default async function Home() {
         </Link>
       </div>
 
-      <div className="bg-green-200 md:flex md:justify-center md:py-2 xl:py-6 2xl:py-10">
+      <div className="bg-green-200 border-b border-b-green-300 md:flex md:justify-center md:py-2 xl:py-6 2xl:py-10">
         {/* molly and emily */}
         <div className="relative md:m-4 md:max-w-100 md:overflow-hidden md:rounded-2xl">
           <Image
@@ -81,7 +81,7 @@ export default async function Home() {
         </div>
 
         {/* upcoming events */}
-        <div className="flex w-full flex-col items-center bg-green-200 p-4 sm:gap-1 sm:px-6 sm:py-8 md:max-w-150">
+        <div className="flex w-full flex-col items-center bg-green-200 p-4 sm:gap-1 sm:px-6 sm:py-8 md:pt-0 md:max-w-150">
           <Link href="/events">
             <H2 color="green" text="Upcoming Events" />
           </Link>
