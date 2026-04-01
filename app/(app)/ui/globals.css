@@ -18,3 +18,9 @@
 .event-card a {
   color: var(--color-pink-400);
 }
+
+.event-card a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
