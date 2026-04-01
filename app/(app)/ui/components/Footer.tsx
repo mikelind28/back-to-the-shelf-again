@@ -9,7 +9,7 @@ export default function Footer() {
       {/* Logo and site name; links to home page. */}
       <Link
         href="/"
-        className="flex flex-col gap-2 xl:flex-row xl:items-end xl:gap-6"
+        className="group flex flex-col gap-2 xl:flex-row xl:items-end xl:gap-6"
       >
         <Image
           src="/logo.png"
@@ -22,7 +22,9 @@ export default function Footer() {
           loading="eager"
         />
 
-        <h1 className={`${titleHeader.className} text-3xl/7 sm:text-4xl/9`}>
+        <h1
+          className={`${titleHeader.className} text-3xl/7 group-hover:underline group-hover:decoration-1 group-hover:underline-offset-2 sm:text-4xl/9`}
+        >
           Back to the Shelf Again
         </h1>
       </Link>
@@ -32,15 +34,24 @@ export default function Footer() {
           className={`mt-4 flex flex-col gap-2 text-xl sm:gap-3 sm:text-2xl xl:mt-0 xl:flex-row xl:justify-evenly xl:text-3xl ${gowunDodum.className}`}
         >
           <li>
-            <Link href="/about">About Us</Link>
+            <Link href="/about" className="hover:underline hover:decoration-1">
+              About Us
+            </Link>
           </li>
 
           <li>
-            <Link href="/events">Events</Link>
+            <Link href="/events" className="hover:underline hover:decoration-1">
+              Events
+            </Link>
           </li>
 
           <li>
-            <Link href="/contact">Contact</Link>
+            <Link
+              href="/contact"
+              className="hover:underline hover:decoration-1"
+            >
+              Contact
+            </Link>
           </li>
         </ul>
       </nav>
@@ -51,7 +62,11 @@ export default function Footer() {
         rel="noopener noreferrer"
         className="mt-4"
       >
-        <InstagramIcon className={"text-pink-300 sm:size-14"} />
+        <InstagramIcon
+          className={
+            "text-pink-300 hover:brightness-110 active:brightness-90 sm:size-14"
+          }
+        />
       </a>
     </footer>
   );

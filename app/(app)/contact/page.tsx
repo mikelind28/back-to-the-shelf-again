@@ -18,7 +18,7 @@ export default function Contact() {
           href="https://www.instagram.com/backtotheshelfagain"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-pink-400"
+          className="text-pink-400 hover:underline hover:decoration-1 hover:underline-offset-2"
         >
           @backtotheshelfagain
         </a>

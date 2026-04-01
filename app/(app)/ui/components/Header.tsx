@@ -18,7 +18,7 @@ export default function Header({
   return (
     <header className="z-90 mb-3 flex items-center justify-between p-2 pt-3 sm:gap-2 sm:p-4 lg:p-6">
       {/* Logo and site name; links to home page. */}
-      <Link href="/" className="flex items-end gap-2">
+      <Link href="/" className="group flex items-end gap-2">
         <Image
           src="/logo.png"
           alt={
@@ -30,7 +30,9 @@ export default function Header({
           loading="eager"
         />
 
-        <h1 className={`${titleHeader.className} text-3xl/7`}>
+        <h1
+          className={`${titleHeader.className} text-3xl/7 group-hover:underline group-hover:decoration-1 group-hover:underline-offset-2`}
+        >
           Back to <br />
           the Shelf <br />
           Again
@@ -63,19 +65,31 @@ export default function Header({
           className={`mx-6 flex justify-evenly gap-8 text-2xl xl:text-3xl ${gowunDodum.className}`}
         >
           <li>
-            <Link href="/about" onClick={() => setGlobalNavOpen(false)}>
+            <Link
+              href="/about"
+              onClick={() => setGlobalNavOpen(false)}
+              className="hover:underline hover:decoration-1"
+            >
               About Us
             </Link>
           </li>
 
           <li>
-            <Link href="/events" onClick={() => setGlobalNavOpen(false)}>
+            <Link
+              href="/events"
+              onClick={() => setGlobalNavOpen(false)}
+              className="hover:underline hover:decoration-1"
+            >
               Events
             </Link>
           </li>
 
           <li>
-            <Link href="/contact" onClick={() => setGlobalNavOpen(false)}>
+            <Link
+              href="/contact"
+              onClick={() => setGlobalNavOpen(false)}
+              className="hover:underline hover:decoration-1"
+            >
               Contact
             </Link>
           </li>

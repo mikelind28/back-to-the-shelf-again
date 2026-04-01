@@ -73,7 +73,7 @@ export default function Home() {
         </p>
         <Link
           href="/about"
-          className={`${titleHeader.className} w-full max-w-md grow rounded-full bg-pink-300 px-4 py-2 text-center text-xl font-medium text-white sm:text-xl`}
+          className={`${titleHeader.className} w-full max-w-md grow rounded-full bg-pink-300 px-4 py-2 text-center text-xl font-medium text-white hover:brightness-110 active:brightness-90 sm:text-xl`}
         >
           Where our story began...
         </Link>
@@ -119,7 +119,7 @@ export default function Home() {
 
           <Link
             href="/events"
-            className={`${titleHeader.className} my-4 h-fit w-full max-w-lg grow rounded-md bg-green-300 px-4 py-2 text-center text-xl font-medium text-white text-shadow-2xs/25 sm:text-2xl`}
+            className={`${titleHeader.className} my-4 h-fit w-full max-w-lg grow rounded-md bg-green-300 px-4 py-2 text-center text-xl font-medium text-white text-shadow-2xs/25 hover:brightness-110 active:brightness-90 sm:text-2xl`}
           >
             See all events
           </Link>
