@@ -18,7 +18,8 @@ export default function Footer() {
           }
           width={100}
           height={100}
-          className="h-auto w-25 sm:w-30"
+          className="w-25 sm:w-30"
+          style={{ height: "auto" }}
           loading="eager"
         />
 

@@ -93,7 +93,7 @@ export default function About() {
                   href="https://www.instagram.com/mlewimmer/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-pink-400"
+                  className="text-pink-400 hover:underline hover:decoration-1 hover:underline-offset-2"
                 >
                   @mlewimmer
                 </a>
@@ -102,7 +102,7 @@ export default function About() {
                   href="https://www.instagram.com/molived/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-pink-400"
+                  className="text-pink-400 hover:underline hover:decoration-1 hover:underline-offset-2"
                 >
                   @molived
                 </a>
