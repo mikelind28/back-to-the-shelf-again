@@ -23,8 +23,7 @@
       "@/*": ["*"],
       "@/ui/*": ["ui/*"],
       "@payload-config": ["../../payload.config.ts"]
-    },
-    "types": ["vitest/globals"]
+    }
   },
   "include": [
     "next-env.d.ts",
