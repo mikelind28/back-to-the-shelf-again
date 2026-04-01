@@ -20,12 +20,13 @@ export default function GlobalNav({ setGlobalNavOpen }: GlobalNavType) {
       <button
         aria-label="close global nav"
         onClick={() => setGlobalNavOpen(false)}
+        className="fixed top-8 right-6 size-8 cursor-pointer"
       >
         <XMarkIcon className="fixed top-8 right-6 size-8" />
       </button>
 
       <ul
-        className={`mt-8 flex flex-col items-end gap-4 text-3xl ${gowunDodum.className}`}
+        className={`mt-14 flex flex-col items-end gap-4 text-3xl ${gowunDodum.className}`}
       >
         <li>
           <Link href="/" onClick={() => setGlobalNavOpen(false)}>

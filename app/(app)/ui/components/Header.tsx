@@ -45,7 +45,7 @@ export default function Header({
             <motion.button
               aria-label="nav menu button"
               onClick={() => setGlobalNavOpen(true)}
-              className="fixed -top-5 right-0 size-fit"
+              className="fixed -top-5 right-0 size-30 cursor-pointer"
               initial={{ top: -120 }}
               animate={{ top: -20 }}
               exit={{ top: -120 }}
