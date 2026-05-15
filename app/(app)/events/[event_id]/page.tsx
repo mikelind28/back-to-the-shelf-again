@@ -9,9 +9,7 @@ type Props = {
   params: Promise<{ event_id: string }>;
 };
 
-export async function generateMetadata(
-  { params }: Props,
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // read route params
   const { event_id } = await params;
   const event = await fetchEventById(event_id);

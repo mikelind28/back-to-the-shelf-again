@@ -1,8 +1,4 @@
-import {
-  amatic,
-  paragraph,
-  titleHeaderBold,
-} from "@/ui/fonts";
+import { amatic, paragraph, titleHeaderBold } from "@/ui/fonts";
 import MapEmbed from "./MapEmbed";
 import { EventType } from "@/lib/types";
 import { RichText } from "@payloadcms/richtext-lexical/react";
