@@ -20,7 +20,7 @@ export default function ParallaxBg() {
   return (
     <motion.div
       ref={divRef}
-      className="aspect-5/3 w-full bg-[url(../../../public/book-pages.webp)] bg-size-[110%] opacity-30 blur-[1px] brightness-130 contrast-75 md:aspect-5/2 lg:bg-size-[100%] xl:aspect-3/1 2xl:aspect-4/1"
+      className="xs:aspect-5/3 aspect-5/4 w-full bg-[url(../../../public/book-pages.webp)] bg-size-[110%] opacity-30 blur-[1px] brightness-130 contrast-75 lg:aspect-2/1 lg:bg-size-[100%] xl:aspect-3/1 2xl:aspect-4/1"
       style={{ backgroundPositionY: backgroundPositionY }}
     />
   );

@@ -1,3 +1,5 @@
+"use client";
+
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { BookmarkIcon } from "@heroicons/react/24/solid";
 import { AnimatePresence, motion } from "motion/react";
@@ -5,6 +7,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Dispatch, SetStateAction } from "react";
 import { gowunDodum, titleHeader } from "@/ui/fonts";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 type HeaderType = {
   globalNavOpen: boolean;
@@ -15,6 +19,7 @@ export default function Header({
   globalNavOpen,
   setGlobalNavOpen,
 }: HeaderType) {
+  const path = usePathname();
   return (
     <header className="z-90 mb-3 flex items-center justify-between p-2 pt-3 sm:gap-2 sm:p-4 lg:p-6">
       {/* Logo and site name; links to home page. */}
@@ -26,7 +31,7 @@ export default function Header({
           }
           width={100}
           height={100}
-          className="w-25 sm:w-30"
+          className="h-auto w-25 sm:w-30"
           style={{ height: "auto" }}
           loading="eager"
         />
@@ -69,7 +74,11 @@ export default function Header({
             <Link
               href="/about"
               onClick={() => setGlobalNavOpen(false)}
-              className="hover:underline hover:decoration-1"
+              className={cn([
+                "hover:underline hover:decoration-1",
+                path === "/about" &&
+                  "underline decoration-1 underline-offset-3",
+              ])}
             >
               About Us
             </Link>
@@ -79,7 +88,11 @@ export default function Header({
             <Link
               href="/events"
               onClick={() => setGlobalNavOpen(false)}
-              className="hover:underline hover:decoration-1"
+              className={cn([
+                "hover:underline hover:decoration-1",
+                path === "/events" &&
+                  "underline decoration-1 underline-offset-3",
+              ])}
             >
               Events
             </Link>
@@ -89,7 +102,11 @@ export default function Header({
             <Link
               href="/contact"
               onClick={() => setGlobalNavOpen(false)}
-              className="hover:underline hover:decoration-1"
+              className={cn([
+                "hover:underline hover:decoration-1",
+                path === "/contact" &&
+                  "underline decoration-1 underline-offset-3",
+              ])}
             >
               Contact
             </Link>

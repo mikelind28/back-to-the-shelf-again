@@ -62,6 +62,24 @@ export async function fetchUpcomingEventsPreview() {
   }
 }
 
+export async function fetchEventById(event_id: string) {
+  try {
+    const data = await sql<EventType[]>`
+      SELECT E.id, E.start_time, E.end_time, E.description, E.location_id, L.name AS location_name, L.address, L.map_embed_src, L.venue_link
+      FROM events E
+      INNER JOIN locations L
+      ON E.location_id = L.id
+      WHERE E.id = ${event_id};
+    `;
+
+    return data[0];
+  } catch (error) {
+    console.error("Database Error:", error);
+    return undefined;
+    // throw new Error(`Failed to fetch event with ID ${event_id}.`);
+  }
+}
+
 export async function fetchImages() {
   noStore();
   try {

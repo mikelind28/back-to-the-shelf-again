@@ -1,19 +1,25 @@
 import { Suspense } from "react";
-import EventCardList from "./EventCardList";
+import EventPreviewList from "./EventPreviewList";
 import H2 from "./H2";
-import { fetchUpcomingEvents } from "@/lib/data";
-import { EventCardSkeleton } from "./Skeletons";
+import { EventPreviewSkeleton } from "./Skeletons";
 import ErrorBoundary from "@/ui/components/CustomErrorBoundary";
+import { gowunDodum } from "../fonts";
+import { EventType } from "@/lib/types";
 
-export default async function EventsUpcoming() {
-  const events = fetchUpcomingEvents();
-
+export default async function EventsUpcoming({
+  events,
+}: {
+  events: EventType[];
+}) {
   return (
-    <div className="bg-green-200 p-4 sm:p-6">
-      <H2 color="green" text="Upcoming Events" />
+    <div className="2xs:p-4 flex w-full flex-col items-center bg-green-200 bg-[url(/green-grid.svg)] bg-size-[25px_25px] bg-center bg-repeat px-2 pt-4 pb-6 sm:p-6 md:w-[90%] md:rounded-lg lg:gap-4 lg:pb-12">
+      <H2
+        text="Upcoming Events"
+        className={`${gowunDodum.className} text-4xl text-green-400`}
+      />
       <ErrorBoundary title="Upcoming Events Error">
-        <Suspense fallback={<EventCardSkeleton />}>
-          <EventCardList events={events} />
+        <Suspense fallback={<EventPreviewSkeleton />}>
+          <EventPreviewList events={events} color="green" />
         </Suspense>
       </ErrorBoundary>
     </div>

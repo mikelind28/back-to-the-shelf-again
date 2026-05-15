@@ -28,6 +28,19 @@ const Locations: CollectionConfig = {
       name: "map_embed_src",
       type: "text",
     },
+    {
+      name: "venue_link",
+      type: "text",
+      validate: (value: string | undefined | null) => {
+        if (!value) return true;
+        if (!URL.canParse(value)) return "Must be a valid URL.";
+        const { protocol } = new URL(value);
+        return (
+          ["http:", "https:"].includes(protocol) ||
+          "Must be an http or https URL."
+        );
+      },
+    },
   ],
 };
 

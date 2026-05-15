@@ -1,23 +1,27 @@
 "use client";
 
 import { EventType } from "@/lib/types";
-import { use } from "react";
 import EventPreviewCard from "./EventPreviewCard";
+import { paragraph } from "../fonts";
 
 export default function EventPreviewList({
   events,
+  color,
 }: {
-  events: Promise<EventType[]>;
+  events: EventType[];
+  color: "pink" | "green";
 }) {
-  const allEvents = use(events);
-
   return (
     <>
-      {allEvents.length === 0 ? (
-        <p className="text-lg">No upcoming events found.</p>
+      {events.length === 0 ? (
+        <p
+          className={`${paragraph.className} bg-background-50 2xs:px-4 2xs:py-2 xs:text-xl w-full max-w-md grow rounded-md px-2 py-1 text-center text-lg font-bold shadow-md`}
+        >
+          No upcoming events!
+        </p>
       ) : (
-        allEvents.map((event) => (
-          <EventPreviewCard key={event.id} event={event} />
+        events.map((event) => (
+          <EventPreviewCard key={event.id} event={event} color={color} />
         ))
       )}
     </>

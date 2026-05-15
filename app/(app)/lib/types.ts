@@ -9,6 +9,7 @@ export type EventType = {
   location_name: string;
   address: string;
   map_embed_src?: string;
+  venue_link?: string;
 };
 
 export type ImageType = {

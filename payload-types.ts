@@ -182,6 +182,7 @@ export interface Location {
   name: string;
   address: string;
   map_embed_src?: string | null;
+  venue_link?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -345,6 +346,7 @@ export interface LocationsSelect<T extends boolean = true> {
   name?: T;
   address?: T;
   map_embed_src?: T;
+  venue_link?: T;
   updatedAt?: T;
   createdAt?: T;
 }

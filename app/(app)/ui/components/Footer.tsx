@@ -1,9 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { gowunDodum, titleHeader } from "@/ui/fonts";
 import InstagramIcon from "./InstagramIcon";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 export default function Footer() {
+  const path = usePathname();
   return (
     <footer className="mb-4 flex flex-col p-4 sm:gap-2 sm:p-6 xl:flex-row xl:items-end xl:justify-between">
       {/* Logo and site name; links to home page. */}
@@ -18,7 +23,7 @@ export default function Footer() {
           }
           width={100}
           height={100}
-          className="w-25 sm:w-30"
+          className="h-auto w-25 sm:w-30"
           style={{ height: "auto" }}
           loading="eager"
         />
@@ -32,16 +37,30 @@ export default function Footer() {
 
       <nav className="max-w-2xl xl:ml-auto xl:w-full">
         <ul
-          className={`mt-4 flex flex-col gap-2 text-xl sm:gap-3 sm:text-2xl xl:mt-0 xl:flex-row xl:justify-evenly xl:text-3xl ${gowunDodum.className}`}
+          className={`mt-4 flex flex-col gap-3 text-2xl xl:mt-0 xl:flex-row xl:justify-evenly xl:text-3xl ${gowunDodum.className}`}
         >
           <li>
-            <Link href="/about" className="hover:underline hover:decoration-1">
+            <Link
+              href="/about"
+              className={cn([
+                "hover:underline hover:decoration-1",
+                path === "/about" &&
+                  "underline decoration-1 underline-offset-3",
+              ])}
+            >
               About Us
             </Link>
           </li>
 
           <li>
-            <Link href="/events" className="hover:underline hover:decoration-1">
+            <Link
+              href="/events"
+              className={cn([
+                "hover:underline hover:decoration-1",
+                path === "/events" &&
+                  "underline decoration-1 underline-offset-3",
+              ])}
+            >
               Events
             </Link>
           </li>
@@ -49,7 +68,11 @@ export default function Footer() {
           <li>
             <Link
               href="/contact"
-              className="hover:underline hover:decoration-1"
+              className={cn([
+                "hover:underline hover:decoration-1",
+                path === "/contact" &&
+                  "underline decoration-1 underline-offset-3",
+              ])}
             >
               Contact
             </Link>

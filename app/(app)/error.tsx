@@ -1,6 +1,7 @@
 "use client"; // Error boundaries must be Client Components
 
 import { useEffect } from "react";
+import { gowunDodum, titleHeaderBold } from "./ui/fonts";
 
 export default function ErrorPage({
   error,
@@ -16,13 +17,15 @@ export default function ErrorPage({
 
   return (
     <div className="flex w-full flex-col items-center">
-      <h2 className="text-lg font-bold">Something went wrong!</h2>
+      <h2 className={`text-xl font-bold ${titleHeaderBold.className}`}>
+        Something went wrong!
+      </h2>
       <button
         onClick={
           // Attempt to recover by re-fetching and re-rendering the segment
           () => unstable_retry()
         }
-        className="m-2 rounded-md border border-t-stone-200 border-r-stone-400 border-b-stone-400 border-l-stone-200 bg-stone-300 px-4 py-2"
+        className={`${gowunDodum.className} m-2 rounded-md border border-t-green-100 border-r-green-300 border-b-green-300 border-l-green-100 bg-green-200 px-4 py-2 text-xl`}
       >
         Try again
       </button>
