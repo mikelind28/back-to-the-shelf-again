@@ -4,31 +4,40 @@ import {
   Amatic_SC,
   Fira_Sans,
   Overlock,
+  Ms_Madi,
 } from "next/font/google";
 
-const titleHeader = Overlock({
+export const titleHeader = Overlock({
   weight: ["400"],
   fallback: ["system-ui"],
 });
 
-const gowunDodum = Gowun_Dodum({
+export const titleHeaderBold = Overlock({
+  weight: ["700"],
+  fallback: ["system-ui"],
+});
+
+export const gowunDodum = Gowun_Dodum({
   weight: ["400"],
   fallback: ["system-ui"],
 });
 
-const amatic = Amatic_SC({
+export const amatic = Amatic_SC({
   weight: ["700"],
   subsets: ["latin"],
 });
 
-const cursive = Meow_Script({
+export const cursive = Meow_Script({
   weight: ["400"],
   subsets: ["latin"],
 });
 
-const paragraph = Fira_Sans({
+export const paragraph = Fira_Sans({
   weight: ["300"],
   fallback: ["system-ui"],
 });
 
-export { titleHeader, gowunDodum, amatic, cursive, paragraph };
+export const cursive2 = Ms_Madi({
+  weight: ["400"],
+  subsets: ["latin"],
+});

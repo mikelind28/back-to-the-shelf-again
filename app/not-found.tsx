@@ -1,6 +1,5 @@
 import Footer from "@/ui/components/Footer";
 import HeaderWrapper from "@/ui/components/HeaderWrapper";
-import "@/ui/globals.css";
 
 export default function NotFound() {
   return (

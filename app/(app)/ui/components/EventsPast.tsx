@@ -1,19 +1,21 @@
 import { Suspense } from "react";
-import EventCardList from "./EventCardList";
+import EventPreviewList from "./EventPreviewList";
 import H2 from "./H2";
-import { fetchPastEvents } from "@/lib/data";
-import { EventCardSkeleton } from "./Skeletons";
+import { EventPreviewSkeleton } from "./Skeletons";
 import ErrorBoundary from "@/ui/components/CustomErrorBoundary";
+import { gowunDodum } from "../fonts";
+import { EventType } from "@/lib/types";
 
-export default async function EventsPast() {
-  const events = fetchPastEvents();
-
+export default async function EventsPast({ events }: { events: EventType[] }) {
   return (
-    <div className="bg-pink-200 p-4 sm:p-6">
-      <H2 color="pink" text="Past Events" />
+    <div className="2xs:p-4 flex w-full flex-col items-center bg-pink-200 bg-[url(/pink-crosshatch.svg)] bg-size-[30px_30px] bg-center bg-repeat px-2 pt-4 pb-6 sm:p-6 md:w-[90%] md:rounded-lg lg:gap-4 lg:pb-12">
+      <H2
+        text="Past Events"
+        className={`${gowunDodum.className} text-4xl text-pink-400`}
+      />
       <ErrorBoundary title="Past Events Error">
-        <Suspense fallback={<EventCardSkeleton />}>
-          <EventCardList events={events} />
+        <Suspense fallback={<EventPreviewSkeleton />}>
+          <EventPreviewList events={events} color="pink" />
         </Suspense>
       </ErrorBoundary>
     </div>

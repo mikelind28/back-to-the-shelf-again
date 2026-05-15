@@ -1,15 +1,22 @@
-import { ReactNode } from "react";
+import { ComponentPropsWithoutRef, ReactNode } from "react";
 import { amatic, cursive } from "@/ui/fonts";
+import { cn } from "@/lib/utils";
 
 type H1Type = {
   line1: ReactNode;
   line2?: ReactNode;
-};
+  className?: string;
+} & ComponentPropsWithoutRef<"h1">;
 
-export default function H1({ line1, line2 }: H1Type) {
+export default function H1({ line1, line2, className, ...h1Props }: H1Type) {
   return (
-    <h1 className="text-center">
-      <span className={`${amatic.className} text-5xl/8 md:text-6xl/10`}>
+    <h1 {...h1Props} className="text-center">
+      <span
+        className={cn([
+          `${amatic.className} text-5xl/8 md:text-6xl/10`,
+          `${className}`,
+        ])}
+      >
         {line1}
       </span>
       {line2 && (

@@ -1,10 +1,11 @@
 import H1 from "@/ui/components/H1";
 import Image from "next/image";
-import { ReactNode } from "react";
+import { ComponentPropsWithoutRef, ReactNode } from "react";
 import { paragraph, titleHeader } from "@/ui/fonts";
 import ParallaxImg from "@/ui/components/ParallaxImg";
 import type { Metadata } from "next";
 import * as motion from "motion/react-client";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "About",
@@ -26,12 +27,13 @@ type CardType = {
 type SectionType = {
   bgColor: string;
   children: ReactNode | ReactNode[];
-};
+  className?: string;
+} & ComponentPropsWithoutRef<"div">;
 
 function Headline({ text }: HeadlineType) {
   return (
     <p
-      className={`${titleHeader.className} text-center text-2xl/8 md:text-3xl/9`}
+      className={`${titleHeader.className} text-center text-2xl/8 md:text-3xl/9 xl:text-4xl/11`}
     >
       {text}
     </p>
@@ -64,10 +66,19 @@ function Card({ bgColor, children }: CardType) {
   );
 }
 
-function Section({ bgColor, children }: SectionType) {
+function Section({
+  bgColor,
+  children,
+  className,
+  ...sectionProps
+}: SectionType) {
   return (
     <div
-      className={`flex w-full flex-col items-center gap-6 px-6 py-10 md:gap-10 ${bgColor}`}
+      {...sectionProps}
+      className={cn([
+        `flex w-full flex-col items-center gap-6 px-4 py-10 sm:px-10 md:gap-10 ${bgColor}`,
+        `${className}`,
+      ])}
     >
       {children}
     </div>
@@ -83,8 +94,8 @@ export default function About() {
       <Section bgColor={"bg-background-100"}>
         <H1 line1="ABOUT" line2="us" />
         <Card bgColor="bg-background-50">
-          <div className="flex flex-col gap-3 px-6 pt-4 pb-6 sm:px-8 sm:pt-6 sm:pb-8 md:gap-5 md:px-12 md:pt-8 md:pb-10 lg:flex-row lg:gap-10">
-            <div className="flex max-w-150 flex-col gap-3 lg:max-w-110">
+          <div className="xs:px-8 xs:pt-10 xs:pb-12 flex flex-col gap-3 px-6 pt-4 pb-6 md:gap-6 md:px-12 lg:flex-row lg:gap-10">
+            <div className="flex max-w-120 flex-col gap-3 md:gap-6 lg:max-w-110 xl:gap-6">
               <Headline text="Every great romance deserves a second chance." />
               <p>
                 That belief is at the heart of Back to the Shelf Again, a pop-up
@@ -130,72 +141,87 @@ export default function About() {
         <ParallaxImg src="/bag-with-logo.webp" />
       </div>
 
-      <div className="w-full lg:flex">
+      <div className="w-full xl:mb-4 xl:flex xl:gap-4 xl:px-4">
         {/* our mission */}
-        <Section bgColor={"bg-pink-200"}>
+        <Section
+          bgColor={"bg-pink-200"}
+          className="bg-[url(/svg-crinkles.svg)] bg-size-[25px_25px] bg-center bg-repeat md:bg-size-[35px_35px] xl:rounded-lg"
+        >
           <H1 line1="OUR" line2="mission" />
           <Card bgColor="bg-white/80">
-            <div className="flex max-w-150 flex-col gap-3 px-6 pt-4 pb-6 sm:px-8 sm:pt-6 sm:pb-8 md:gap-5 md:px-12 md:pt-8 md:pb-10">
-              <Headline text="Our mission is simple: to give gently used romance books a second chance at love." />
-              <p>
-                We believe stories are meant to be shared, not shelved, and that
-                every dog-eared page, handwritten note, and well-loved spine
-                carries the magic of the readers before you.
-              </p>
-              <p>
-                Because sometimes, the best love stories don’t end at “The End.”
-                Sometimes, they just need another chance to be discovered.
-              </p>
+            <div className="xs:px-8 xs:pt-10 xs:pb-12 flex flex-col gap-3 px-6 pt-4 pb-6 md:gap-6 md:px-12 xl:flex-row xl:gap-10 xl:px-12">
+              <div className="flex max-w-120 flex-col gap-3 md:gap-6 xl:gap-8">
+                <Headline text="Our mission is simple: to give gently used romance books a second chance at love." />
+                <p>
+                  We believe stories are meant to be shared, not shelved, and
+                  that every dog-eared page, handwritten note, and well-loved
+                  spine carries the magic of the readers before you.
+                </p>
+                <p>
+                  Because sometimes, the best love stories don’t end at “The
+                  End.” Sometimes, they just need another chance to be
+                  discovered.
+                </p>
+              </div>
             </div>
           </Card>
           <Divider color="bg-pink-300" />
         </Section>
 
         {/* our story */}
-        <Section bgColor={"bg-green-200"}>
+        <Section
+          bgColor={"bg-green-200"}
+          className="bg-[url(/green-dots.svg)] bg-size-[500px_500px] bg-center bg-repeat xl:rounded-lg"
+        >
           <H1 line1="OUR" line2="story" />
           <Card bgColor="bg-white/80">
-            <div className="flex max-w-150 flex-col gap-3 px-6 pt-4 pb-6 sm:px-8 sm:pt-6 sm:pb-8 md:gap-5 md:px-12 md:pt-8 md:pb-10">
-              <Headline text="All great Female Main Characters (FMCs) meet their bestie at work..." />
-              <p>
-                ...and the same is true for us! The longer we worked together,
-                the more we came to realize not only that we’re a great team,
-                but that we share the same interests when it comes to the books
-                we immerse ourselves in... Romance.
-              </p>
-              <p>
-                As we began to share recommendations, favorite bookstagram
-                accounts, and local bookstores, we realized we wanted to join
-                this amazing book community and bring it to our own communities
-                here in Wisconsin.
-              </p>
-              <p>
-                We built Back to the Shelf Again to bring stories back into
-                people’s everyday lives. Whether you’re a seasoned reader or
-                just finding your way back, we’re here to help you fall in love
-                with reading all over again.
-              </p>
+            <div className="xs:px-8 xs:pt-10 xs:pb-12 flex flex-col gap-3 px-6 pt-4 pb-6 md:gap-6 md:px-12 xl:flex-row xl:gap-10 xl:px-12">
+              <div className="flex max-w-120 flex-col gap-3 md:gap-6 xl:gap-8">
+                <Headline text="All great Female Main Characters (FMCs) meet their bestie at work..." />
+                <p>
+                  ...and the same is true for us! The longer we worked together,
+                  the more we came to realize not only that we’re a great team,
+                  but that we share the same interests when it comes to the
+                  books we immerse ourselves in... Romance.
+                </p>
+                <p>
+                  As we began to share recommendations, favorite bookstagram
+                  accounts, and local bookstores, we realized we wanted to join
+                  this amazing book community and bring it to our own
+                  communities here in Wisconsin.
+                </p>
+                <p>
+                  We built Back to the Shelf Again to bring stories back into
+                  people’s everyday lives. Whether you’re a seasoned reader or
+                  just finding your way back, we’re here to help you fall in
+                  love with reading all over again.
+                </p>
+              </div>
             </div>
           </Card>
           <Divider color="bg-green-300" />
         </Section>
       </div>
 
-      <div className="w-full lg:flex">
+      <div className="w-full xl:flex xl:gap-4 xl:px-4">
         {/* meet emily */}
-        <Section bgColor={"bg-pink-300"}>
+        <Section
+          bgColor={"bg-pink-300"}
+          className="bg-[url(/pink-beams.svg)] bg-size-[500px_500px] bg-center bg-repeat xl:rounded-lg"
+        >
           <H1 line1="MEET" line2="emily" />
-          <Card bgColor="bg-white/70">
-            <div className="flex max-w-150 flex-col items-center gap-3 px-6 pt-4 pb-6 sm:px-8 sm:pt-6 sm:pb-8 md:max-w-190 md:flex-row md:gap-5 md:pt-8 md:pr-12 md:pb-10 lg:flex-col 2xl:flex-row">
+          <Card bgColor="bg-white/90">
+            <div className="xs:px-8 xs:pt-10 xs:pb-12 flex max-w-150 flex-col items-center gap-3 px-6 pt-4 pb-6 md:max-w-190 md:flex-row md:items-start md:gap-5 md:pt-10 md:pr-14 md:pb-12 xl:flex-col xl:items-center xl:gap-8 xl:px-12 2xl:flex-row 2xl:items-start">
+              {/* TODO: fix image sizes */}
               <Image
                 src="/emily.webp"
                 alt="Emily"
                 width={500}
                 height={500}
-                className="w-full max-w-80"
+                className="w-full max-w-80 md:sticky md:top-0 xl:static 2xl:sticky 2xl:w-fit 2xl:shrink-2 2xl:grow"
                 loading="eager"
               />
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-3 xl:gap-8 2xl:w-full 2xl:grow">
                 <Headline text="Hi, I’m Emily." />
                 <p>
                   ...co-owner of Back to the Shelf Again. I’m a Lodi native, a
@@ -209,23 +235,26 @@ export default function About() {
               </div>
             </div>
           </Card>
-          <Divider color="bg-pink-400" />
+          <Divider color="bg-pink-200" />
         </Section>
 
         {/* meet molly */}
-        <Section bgColor={"bg-green-300"}>
+        <Section
+          bgColor={"bg-green-300"}
+          className="bg-[url(/green-beams.svg)] bg-size-[500px_500px] bg-center bg-repeat xl:rounded-lg"
+        >
           <H1 line1="MEET" line2="molly" />
-          <Card bgColor="bg-white/70">
-            <div className="flex max-w-150 flex-col items-center gap-3 px-6 pt-4 pb-6 sm:px-8 sm:pt-6 sm:pb-8 md:max-w-190 md:flex-row md:gap-5 md:pt-8 md:pr-12 md:pb-10 lg:flex-col 2xl:flex-row">
+          <Card bgColor="bg-white/85">
+            <div className="xs:px-8 xs:pt-10 xs:pb-12 flex max-w-150 flex-col items-center gap-3 px-6 pt-4 pb-6 md:max-w-190 md:flex-row md:items-start md:gap-5 md:pt-10 md:pr-14 md:pb-12 xl:flex-col xl:items-center xl:gap-8 xl:px-12 2xl:flex-row 2xl:items-start">
               <Image
                 src="/molly.webp"
                 alt="Molly, stirring a cup of coffee"
                 width={500}
                 height={500}
-                className="w-full max-w-80"
+                className="w-full max-w-80 md:sticky md:top-0 xl:static 2xl:sticky"
                 loading="eager"
               />
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-3 xl:gap-8">
                 <Headline text="Hi, I’m Molly." />
                 <p>
                   ...co-owner of Back to the Shelf Again! Growing up as an only
@@ -239,7 +268,7 @@ export default function About() {
               </div>
             </div>
           </Card>
-          <Divider color="bg-green-400" />
+          <Divider color="bg-green-200" />
         </Section>
       </div>
     </main>

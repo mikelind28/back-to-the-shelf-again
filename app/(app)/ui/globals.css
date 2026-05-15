@@ -1,7 +1,11 @@
 @import "tailwindcss";
-@source "../../";
+/* @source "../../../"; */
 
 @theme {
+  /* 400px */
+  --breakpoint-2xs: 25rem;
+  /* 512px */
+  --breakpoint-xs: 32rem;
   --color-background-50: #fbfaf3;
   --color-background-100: #f3ebe3;
   --color-pink-100: #f1e1e2;
@@ -23,4 +27,29 @@
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
+}
+
+/* React DayPicker calendar */
+.rdp-root {
+  --rdp-accent-color: var(--color-pink-400);
+  --rdp-accent-background-color: var(--color-background-50);
+  --rdp-selected-border: none;
+  --rdp-outside-opacity: 0.25;
+  --rdp-disabled-opacity: 1;
+}
+
+.upcoming-events-class {
+  background-color: var(--color-green-300);
+  color: white;
+  border-radius: 50%;
+}
+
+.past-events-class {
+  background-color: var(--color-pink-300);
+  color: white;
+  border-radius: 50%;
+}
+
+.event-today-class {
+  color: white !important;
 }

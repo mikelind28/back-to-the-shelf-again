@@ -8,13 +8,13 @@ export default function MapEmbed({
   return (
     <iframe
       src={decodedSrc}
-      width="fit"
-      height="400"
+      width="full"
+      height="300"
       style={{ border: 0 }}
       allowFullScreen={false}
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"
-      className="my-3 sm:my-4"
+      className="xs:h-85 my-3 max-w-3xl rounded-sm outline outline-stone-400 sm:my-4 lg:h-full lg:max-w-xl"
     ></iframe>
   );
 }

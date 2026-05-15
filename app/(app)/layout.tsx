@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "react-day-picker/style.css";
 import "./ui/globals.css";
 import HeaderWrapper from "./ui/components/HeaderWrapper";
 import Footer from "./ui/components/Footer";
