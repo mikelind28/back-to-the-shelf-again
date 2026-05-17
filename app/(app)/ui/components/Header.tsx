@@ -29,9 +29,9 @@ export default function Header({
           alt={
             "Back to the Shelf Again logo: five upright books interspersed with foliage."
           }
-          width={100}
-          height={100}
-          className="h-auto w-25 sm:w-30"
+          width={598}
+          height={408}
+          className="w-25 sm:w-30"
           style={{ height: "auto" }}
           loading="eager"
         />
@@ -77,7 +77,7 @@ export default function Header({
               className={cn([
                 "hover:underline hover:decoration-1",
                 path === "/about" &&
-                  "underline decoration-1 underline-offset-3",
+                  "underline decoration-pink-300 decoration-wavy decoration-1 underline-offset-3",
               ])}
             >
               About Us
@@ -91,7 +91,7 @@ export default function Header({
               className={cn([
                 "hover:underline hover:decoration-1",
                 path === "/events" &&
-                  "underline decoration-1 underline-offset-3",
+                  "underline decoration-pink-300 decoration-wavy decoration-1 underline-offset-3",
               ])}
             >
               Events
@@ -105,7 +105,7 @@ export default function Header({
               className={cn([
                 "hover:underline hover:decoration-1",
                 path === "/contact" &&
-                  "underline decoration-1 underline-offset-3",
+                  "underline decoration-pink-300 decoration-wavy decoration-1 underline-offset-3",
               ])}
             >
               Contact

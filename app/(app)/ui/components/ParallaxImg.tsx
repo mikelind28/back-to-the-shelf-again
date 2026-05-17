@@ -14,11 +14,11 @@ export default function ParallaxImg({ src }: { src: string }) {
   const transformOrigin = useTransform(
     scrollYProgress,
     [0, 1],
-    ["50% 10%", "50% 100%"],
+    ["50% 40%", "50% 100%"],
   );
 
   return (
-    <div className="overflow-hidden sm:mb-8 sm:max-w-140 sm:rounded-3xl lg:sticky lg:top-4 lg:mb-0 lg:w-full lg:max-w-110">
+    <div className="xs:max-w-120 xs:rounded-xl xs:mb-8 overflow-hidden sm:max-w-140 sm:rounded-3xl lg:sticky lg:top-4 lg:mb-0 lg:w-full lg:max-w-110">
       <motion.img
         ref={divRef}
         src={src}

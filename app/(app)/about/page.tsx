@@ -59,7 +59,7 @@ function Card({ bgColor, children }: CardType) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: 0.1, duration: 0.7 }}
-      className={`${bgColor} rounded-md`}
+      className={`${bgColor} rounded-md md:rounded-lg`}
     >
       {children}
     </motion.div>

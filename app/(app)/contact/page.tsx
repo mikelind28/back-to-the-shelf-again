@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Contact() {
   return (
-    <main className="flex flex-col items-center gap-4 p-4 sm:gap-6">
+    <main className="flex flex-col items-center gap-4 sm:gap-6">
       <H1 line1="CONTACT" line2="us" />
       <p className={`text-center text-lg sm:text-xl ${paragraph.className}`}>
         Find us on Instagram at{" "}
@@ -22,13 +22,14 @@ export default function Contact() {
         >
           @backtotheshelfagain
         </a>
+        !
       </p>
 
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 1.5 }}
-        className="flex w-full justify-center"
+        className="flex w-full justify-center bg-pink-200 bg-[url(/pink-curls.svg)] bg-size-[75px_75px] bg-center bg-repeat px-2 py-8"
       >
         <InstagramEmbed />
       </motion.div>
