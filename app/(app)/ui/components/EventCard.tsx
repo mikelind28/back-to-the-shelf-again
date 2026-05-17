@@ -39,7 +39,7 @@ function BounceInDetails({ children }: { children: ReactNode | ReactNode[] }) {
         mass: 0.3,
         velocity: 2,
       }}
-      className="w-[calc(100%+40px)] max-w-3xl rounded-lg border-6 border-white bg-white bg-[url(/svg-crinkles.svg)] bg-size-[20px_20px] bg-center bg-repeat py-2 pr-2 pl-10 shadow-sm outline outline-stone-300 md:w-full md:translate-x-12 md:pl-2"
+      className="w-[calc(100%+40px)] max-w-3xl rounded-lg border-6 border-white bg-white bg-[url(/svg-crinkles.svg)] bg-size-[20px_20px] bg-center bg-repeat py-2 pr-2 pl-10 shadow-sm outline outline-stone-300 sm:w-full sm:translate-x-12 sm:pl-2"
     >
       {children}
     </motion.div>
@@ -53,12 +53,12 @@ export default function EventCard({ event }: { event: EventType }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: 0.1, duration: 0.7 }}
-      className={`event-card w-full ${paragraph.className} bg-background-50 xs:rounded-md 2xs:gap-2 2xs:px-6 2xs:py-8 my-4 flex flex-col gap-1 overflow-hidden px-4 py-6 sm:px-10 md:items-center md:gap-4 md:px-16 lg:flex-row lg:items-stretch lg:gap-8 lg:py-16`}
+      className={`event-card w-full ${paragraph.className} bg-background-50 xs:rounded-md 2xs:gap-2 2xs:px-6 2xs:py-8 my-4 flex flex-col items-center gap-1 overflow-hidden px-4 py-6 sm:px-10 md:items-center md:gap-4 md:px-16 lg:flex-row lg:items-stretch lg:justify-center lg:gap-8 lg:py-16`}
     >
       <div className="flex w-full max-w-xl grow-4 flex-col md:gap-4">
         {event.end_time > new Date() ? (
           <div
-            className={`${titleHeaderBold.className} flex w-full max-w-xl items-center gap-2 rounded-sm border border-green-300 bg-green-500/33 px-2 py-px text-lg text-green-400 sm:text-xl md:py-1`}
+            className={`${titleHeaderBold.className} flex w-full max-w-xl items-center gap-2 rounded-sm border border-green-300 bg-green-200/50 px-2 py-px text-lg text-green-400 sm:text-xl md:py-1`}
           >
             <ClockIcon className="size-5" strokeWidth={2} />
             <p>Upcoming Event!</p>

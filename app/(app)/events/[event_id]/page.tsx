@@ -2,7 +2,7 @@ import { fetchEventById } from "@/lib/data";
 import EventCard from "@/ui/components/EventCard";
 import { gowunDodum } from "@/ui/fonts";
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
-import { ResolvingMetadata, Metadata } from "next";
+import { Metadata } from "next";
 import Link from "next/link";
 
 type Props = {

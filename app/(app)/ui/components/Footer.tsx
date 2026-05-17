@@ -45,7 +45,7 @@ export default function Footer() {
               className={cn([
                 "hover:underline hover:decoration-1",
                 path === "/about" &&
-                  "underline decoration-1 underline-offset-3",
+                  "underline decoration-pink-300 decoration-wavy decoration-1 underline-offset-3",
               ])}
             >
               About Us
@@ -58,7 +58,7 @@ export default function Footer() {
               className={cn([
                 "hover:underline hover:decoration-1",
                 path === "/events" &&
-                  "underline decoration-1 underline-offset-3",
+                  "underline decoration-pink-300 decoration-wavy decoration-1 underline-offset-3",
               ])}
             >
               Events
@@ -71,7 +71,7 @@ export default function Footer() {
               className={cn([
                 "hover:underline hover:decoration-1",
                 path === "/contact" &&
-                  "underline decoration-1 underline-offset-3",
+                  "underline decoration-pink-300 decoration-wavy decoration-1 underline-offset-3",
               ])}
             >
               Contact

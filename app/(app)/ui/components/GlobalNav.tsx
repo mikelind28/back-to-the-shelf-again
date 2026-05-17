@@ -38,7 +38,8 @@ export default function GlobalNav({ setGlobalNavOpen }: GlobalNavType) {
             href="/"
             onClick={() => setGlobalNavOpen(false)}
             className={cn([
-              path === "/" && "underline decoration-1 underline-offset-3",
+              path === "/" &&
+                "underline decoration-pink-300 decoration-wavy decoration-1 underline-offset-3",
             ])}
           >
             Home
@@ -50,7 +51,8 @@ export default function GlobalNav({ setGlobalNavOpen }: GlobalNavType) {
             href="/about"
             onClick={() => setGlobalNavOpen(false)}
             className={cn([
-              path === "/about" && "underline decoration-1 underline-offset-3",
+              path === "/about" &&
+                "underline decoration-pink-300 decoration-wavy decoration-1 underline-offset-3",
             ])}
           >
             About Us
@@ -62,7 +64,8 @@ export default function GlobalNav({ setGlobalNavOpen }: GlobalNavType) {
             href="/events"
             onClick={() => setGlobalNavOpen(false)}
             className={cn([
-              path === "/events" && "underline decoration-1 underline-offset-3",
+              path === "/events" &&
+                "underline decoration-pink-300 decoration-wavy decoration-1 underline-offset-3",
             ])}
           >
             Events
@@ -75,7 +78,7 @@ export default function GlobalNav({ setGlobalNavOpen }: GlobalNavType) {
             onClick={() => setGlobalNavOpen(false)}
             className={cn([
               path === "/contact" &&
-                "underline decoration-1 underline-offset-3",
+                "underline decoration-pink-300 decoration-wavy decoration-1 underline-offset-3",
             ])}
           >
             Contact
