@@ -5,7 +5,7 @@ import { BookmarkIcon } from "@heroicons/react/24/solid";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef } from "react";
 import { gowunDodum, titleHeader } from "@/ui/fonts";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -20,6 +20,14 @@ export default function Header({
   setGlobalNavOpen,
 }: HeaderType) {
   const path = usePathname();
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (!globalNavOpen) {
+      // Small timeout ensures the element is in the DOM and animation won't fight focus
+      setTimeout(() => menuButtonRef.current?.focus(), 50);
+    }
+  }, [globalNavOpen]);
+
   return (
     <header className="z-90 mb-3 flex items-center justify-between p-2 pt-3 sm:gap-2 sm:p-4 lg:p-6">
       {/* Logo and site name; links to home page. */}
@@ -51,6 +59,7 @@ export default function Header({
         <AnimatePresence>
           {!globalNavOpen && (
             <motion.button
+              ref={menuButtonRef}
               aria-label="nav menu button"
               onClick={() => setGlobalNavOpen(true)}
               className="fixed -top-5 right-0 size-30 cursor-pointer"
@@ -77,7 +86,7 @@ export default function Header({
               className={cn([
                 "hover:underline hover:decoration-1",
                 path === "/about" &&
-                  "underline decoration-pink-300 decoration-wavy decoration-1 underline-offset-3",
+                  "font-semibold text-pink-400 underline decoration-pink-300 underline-offset-2",
               ])}
             >
               About Us
@@ -91,7 +100,7 @@ export default function Header({
               className={cn([
                 "hover:underline hover:decoration-1",
                 path === "/events" &&
-                  "underline decoration-pink-300 decoration-wavy decoration-1 underline-offset-3",
+                  "font-semibold text-pink-400 underline decoration-pink-300 underline-offset-2",
               ])}
             >
               Events
@@ -105,7 +114,7 @@ export default function Header({
               className={cn([
                 "hover:underline hover:decoration-1",
                 path === "/contact" &&
-                  "underline decoration-pink-300 decoration-wavy decoration-1 underline-offset-3",
+                  "font-semibold text-pink-400 underline decoration-pink-300 underline-offset-2",
               ])}
             >
               Contact
