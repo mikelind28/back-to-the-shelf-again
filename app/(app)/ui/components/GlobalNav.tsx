@@ -3,17 +3,28 @@
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { motion } from "motion/react";
 import Link from "next/link";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef } from "react";
 import { gowunDodum } from "@/ui/fonts";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 type GlobalNavType = {
+  globalNavOpen: boolean;
   setGlobalNavOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-export default function GlobalNav({ setGlobalNavOpen }: GlobalNavType) {
+export default function GlobalNav({
+  globalNavOpen,
+  setGlobalNavOpen,
+}: GlobalNavType) {
   const path = usePathname();
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (globalNavOpen) {
+      setTimeout(() => closeButtonRef.current?.focus(), 50);
+    }
+  }, [globalNavOpen]);
+
   return (
     <motion.nav
       initial={{ x: "100%" }}
@@ -23,6 +34,7 @@ export default function GlobalNav({ setGlobalNavOpen }: GlobalNavType) {
       className="bg-background-50 fixed top-0 left-0 z-100 h-dvh w-dvw p-8 sm:hidden"
     >
       <button
+        ref={closeButtonRef}
         aria-label="close global nav"
         onClick={() => setGlobalNavOpen(false)}
         className="fixed top-8 right-6 size-8 cursor-pointer"
@@ -39,7 +51,7 @@ export default function GlobalNav({ setGlobalNavOpen }: GlobalNavType) {
             onClick={() => setGlobalNavOpen(false)}
             className={cn([
               path === "/" &&
-                "underline decoration-pink-300 decoration-wavy decoration-1 underline-offset-3",
+                "font-semibold text-pink-400 underline decoration-pink-300 underline-offset-2",
             ])}
           >
             Home
@@ -52,7 +64,7 @@ export default function GlobalNav({ setGlobalNavOpen }: GlobalNavType) {
             onClick={() => setGlobalNavOpen(false)}
             className={cn([
               path === "/about" &&
-                "underline decoration-pink-300 decoration-wavy decoration-1 underline-offset-3",
+                "font-semibold text-pink-400 underline decoration-pink-300 underline-offset-2",
             ])}
           >
             About Us
@@ -65,7 +77,7 @@ export default function GlobalNav({ setGlobalNavOpen }: GlobalNavType) {
             onClick={() => setGlobalNavOpen(false)}
             className={cn([
               path === "/events" &&
-                "underline decoration-pink-300 decoration-wavy decoration-1 underline-offset-3",
+                "font-semibold text-pink-400 underline decoration-pink-300 underline-offset-2",
             ])}
           >
             Events
@@ -78,7 +90,7 @@ export default function GlobalNav({ setGlobalNavOpen }: GlobalNavType) {
             onClick={() => setGlobalNavOpen(false)}
             className={cn([
               path === "/contact" &&
-                "underline decoration-pink-300 decoration-wavy decoration-1 underline-offset-3",
+                "font-semibold text-pink-400 underline decoration-pink-300 underline-offset-2",
             ])}
           >
             Contact

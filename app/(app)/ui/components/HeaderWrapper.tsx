@@ -13,7 +13,12 @@ export default function HeaderWrapper() {
       {/* Wraps the Header and GlobalNav into one client component.
         GlobalNav animates in/out of the DOM when opened/closed. */}
       <AnimatePresence>
-        {globalNavOpen && <GlobalNav setGlobalNavOpen={setGlobalNavOpen} />}
+        {globalNavOpen && (
+          <GlobalNav
+            globalNavOpen={globalNavOpen}
+            setGlobalNavOpen={setGlobalNavOpen}
+          />
+        )}
       </AnimatePresence>
 
       <Header

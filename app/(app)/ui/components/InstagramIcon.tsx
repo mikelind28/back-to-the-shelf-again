@@ -1,9 +1,9 @@
 export default function InstagramIcon({ className }: { className?: string }) {
   return (
     <svg
-      id="Layer_1"
+      id="instagram-icon"
       className={className}
-      data-name="Layer 1"
+      data-name="instagram-icon"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1000 1000"
       height="50"

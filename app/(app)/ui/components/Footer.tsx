@@ -45,7 +45,7 @@ export default function Footer() {
               className={cn([
                 "hover:underline hover:decoration-1",
                 path === "/about" &&
-                  "underline decoration-pink-300 decoration-wavy decoration-1 underline-offset-3",
+                  "font-semibold text-pink-400 underline decoration-pink-300 underline-offset-2",
               ])}
             >
               About Us
@@ -58,7 +58,7 @@ export default function Footer() {
               className={cn([
                 "hover:underline hover:decoration-1",
                 path === "/events" &&
-                  "underline decoration-pink-300 decoration-wavy decoration-1 underline-offset-3",
+                  "font-semibold text-pink-400 underline decoration-pink-300 underline-offset-2",
               ])}
             >
               Events
@@ -71,7 +71,7 @@ export default function Footer() {
               className={cn([
                 "hover:underline hover:decoration-1",
                 path === "/contact" &&
-                  "underline decoration-pink-300 decoration-wavy decoration-1 underline-offset-3",
+                  "font-semibold text-pink-400 underline decoration-pink-300 underline-offset-2",
               ])}
             >
               Contact
@@ -91,6 +91,7 @@ export default function Footer() {
             "text-pink-300 hover:brightness-110 active:brightness-90 sm:size-14"
           }
         />
+        <span className="sr-only">Link to Instagram</span>
       </a>
     </footer>
   );
