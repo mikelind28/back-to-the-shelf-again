@@ -3,7 +3,9 @@ import "react-day-picker/style.css";
 import "./ui/globals.css";
 import HeaderWrapper from "./ui/components/HeaderWrapper";
 import Footer from "./ui/components/Footer";
+import { PreloadResources } from "./preload-resources";
 
+// TODO: add openGraph metadata
 export const metadata: Metadata = {
   title: {
     template: "%s | Back to the Shelf Again",
@@ -24,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`bg-background-100 h-full antialiased`}>
       <body className="flex min-h-dvh max-w-dvw flex-col justify-between">
+        <PreloadResources />
         <HeaderWrapper />
         {children}
         <Footer />

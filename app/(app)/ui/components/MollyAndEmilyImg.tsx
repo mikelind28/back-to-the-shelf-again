@@ -28,8 +28,9 @@ export default function MollyAndEmilyImg() {
         id="molly-and-emily"
         src="/molly-and-emily.webp"
         alt="Molly and Emily"
-        width={1500}
-        height={1500}
+        width={4032}
+        height={6048}
+        quality={25}
         className="aspect-4/3 scale-120 object-cover md:aspect-4/5 md:origin-[50%_75%] md:scale-150"
         loading="eager"
         style={{ objectPosition: objectPositionY }}
