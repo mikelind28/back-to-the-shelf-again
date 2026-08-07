@@ -25,7 +25,7 @@ export default function MyImageList({
             alt={image.alt}
             width={800}
             height={800}
-            loading="eager"
+            quality={25}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
