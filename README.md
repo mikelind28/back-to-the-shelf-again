@@ -22,18 +22,18 @@ A full-stack site for **Back to the Shelf Again**, a pop-up book shop based in S
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Framework | [Next.js](https://nextjs.org/) 16 (React 19) |
-| CMS / Admin | [Payload CMS](https://payloadcms.com/) 3 |
-| Database | PostgreSQL (via `@payloadcms/db-postgres` / `@payloadcms/db-vercel-postgres`) |
-| Rich Text | Payload Lexical editor |
-| Styling | Tailwind CSS v4, `clsx`, `tailwind-merge` |
-| Icons | Heroicons |
-| Animation | Motion |
-| Date Picker | `react-day-picker` |
-| Testing | Playwright |
-| Language | TypeScript |
+| Layer       | Technology                                                                    |
+| ----------- | ----------------------------------------------------------------------------- |
+| Framework   | [Next.js](https://nextjs.org/) 16 (React 19)                                  |
+| CMS / Admin | [Payload CMS](https://payloadcms.com/) 3                                      |
+| Database    | PostgreSQL (via `@payloadcms/db-postgres` / `@payloadcms/db-vercel-postgres`) |
+| Rich Text   | Payload Lexical editor                                                        |
+| Styling     | Tailwind CSS v4, `clsx`, `tailwind-merge`                                     |
+| Icons       | Heroicons                                                                     |
+| Animation   | Motion                                                                        |
+| Date Picker | `react-day-picker`                                                            |
+| Testing     | Playwright                                                                    |
+| Language    | TypeScript                                                                    |
 
 ## Content Model
 
