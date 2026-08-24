@@ -18,15 +18,19 @@ export default function GlobalNav({
   setGlobalNavOpen,
 }: GlobalNavType) {
   const path = usePathname();
-  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+
   useEffect(() => {
     if (globalNavOpen) {
-      setTimeout(() => closeButtonRef.current?.focus(), 50);
+      const timeoutId = setTimeout(() => navRef.current?.focus(), 50);
+      return () => clearTimeout(timeoutId);
     }
   }, [globalNavOpen]);
 
   return (
     <motion.nav
+      ref={navRef}
+      tabIndex={-1}
       initial={{ x: "100%" }}
       animate={{ x: 0 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
@@ -34,7 +38,6 @@ export default function GlobalNav({
       className="bg-background-50 fixed top-0 left-0 z-100 h-dvh w-dvw p-8 sm:hidden"
     >
       <button
-        ref={closeButtonRef}
         aria-label="close global nav"
         onClick={() => setGlobalNavOpen(false)}
         className="fixed top-8 right-6 size-8 cursor-pointer"

@@ -5,7 +5,7 @@ import { BookmarkIcon } from "@heroicons/react/24/solid";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { Dispatch, SetStateAction, useEffect, useRef } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { gowunDodum, titleHeader } from "@/ui/fonts";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -20,13 +20,19 @@ export default function Header({
   setGlobalNavOpen,
 }: HeaderType) {
   const path = usePathname();
-  const menuButtonRef = useRef<HTMLButtonElement>(null);
-  useEffect(() => {
-    if (!globalNavOpen) {
-      // Small timeout ensures the element is in the DOM and animation won't fight focus
-      setTimeout(() => menuButtonRef.current?.focus(), 50);
-    }
-  }, [globalNavOpen]);
+  // const menuButtonRef = useRef<HTMLButtonElement>(null);
+  // const prevNavOpenRef = useRef(globalNavOpen);
+
+  // useEffect(() => {
+  //   const wasOpen = prevNavOpenRef.current;
+  //   prevNavOpenRef.current = globalNavOpen;
+
+  //   if (wasOpen && !globalNavOpen) {
+  //     // Nav just closed — return focus to the toggle button
+  //     const timeoutId = setTimeout(() => menuButtonRef.current?.focus(), 50);
+  //     return () => clearTimeout(timeoutId);
+  //   }
+  // }, [globalNavOpen]);
 
   return (
     <header className="z-90 mb-3 flex items-center justify-between p-2 pt-3 sm:gap-2 sm:p-4 lg:p-6">
@@ -59,7 +65,7 @@ export default function Header({
         <AnimatePresence>
           {!globalNavOpen && (
             <motion.button
-              ref={menuButtonRef}
+              // ref={menuButtonRef}
               aria-label="nav menu button"
               onClick={() => setGlobalNavOpen(true)}
               className="fixed -top-5 right-0 size-30 cursor-pointer"
